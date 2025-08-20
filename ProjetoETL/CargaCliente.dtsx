@@ -11,8 +11,8 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="CargaCliente"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{0F8D9B19-9623-45B4-B61E-EBB718CDF451}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{C3A5AB3C-73C1-457D-8C29-4D30B5E0C9F0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=bi_error;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-CargaCliente-{B4ED39B6-4828-4465-9972-908B0BD2BA3C}LUCAS-IDEAPADGA\SQLDEVELOPER.bi_error;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=bi_error;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-CargaCliente-{B4ED39B6-4828-4465-9972-908B0BD2BA3C}LUCAS-IDEAPADGA\SQLDEVELOPER.bi_error;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -56,13 +56,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\StageCliente"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{81A6C82E-96A2-4486-8409-483701385694}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="StageCliente"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -70,7 +70,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Data Conversion"
+              refId="Package\StageCliente\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
@@ -78,40 +78,40 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\StageCliente\Data Conversion.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[NomeCompleto]"
+                      refId="Package\StageCliente\Data Conversion.Inputs[Data Conversion Input].Columns[NomeCompleto]"
                       cachedDataType="wstr"
                       cachedLength="61"
                       cachedName="NomeCompleto"
-                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]" />
+                      lineageId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[SexoPalavra]"
+                      refId="Package\StageCliente\Data Conversion.Inputs[Data Conversion Input].Columns[SexoPalavra]"
                       cachedDataType="wstr"
                       cachedLength="9"
                       cachedName="SexoPalavra"
-                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]" />
+                      lineageId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\StageCliente\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[StringNomeCompleto]"
+                      refId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Output].Columns[StringNomeCompleto]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="61"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[StringNomeCompleto]"
+                      lineageId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Output].Columns[StringNomeCompleto]"
                       name="StringNomeCompleto"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -119,7 +119,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]}</property>
+                          name="SourceInputColumnLineageID">#{Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -127,13 +127,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[StringSexoPalavra]"
+                      refId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Output].Columns[StringSexoPalavra]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="9"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[StringSexoPalavra]"
+                      lineageId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Output].Columns[StringSexoPalavra]"
                       name="StringSexoPalavra"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -141,7 +141,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]}</property>
+                          name="SourceInputColumnLineageID">#{Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -152,22 +152,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\StageCliente\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -176,7 +176,232 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\DestinationCliente"
+              refId="Package\StageCliente\DestinantionBIError"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DestinantionBIError"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ErrorEndereco]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\StageCliente\DestinantionBIError.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BIError]"
+                  connectionManagerRefId="Package.ConnectionManagers[BIError]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[idcliente]"
+                      cachedDataType="i4"
+                      cachedName="idcliente"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[idcliente]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]" />
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="nome"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]" />
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[sobrenome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="sobrenome"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[sobrenome]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]" />
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[sexo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="sexo"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]" />
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[nascimento]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="nascimento"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[nascimento]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[nascimento]" />
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[NomeCompleto]"
+                      cachedDataType="wstr"
+                      cachedLength="61"
+                      cachedName="NomeCompleto"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[NomeCompleto]"
+                      lineageId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]" />
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[SexoPalavra]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="SexoPalavra"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[SexoPalavra]"
+                      lineageId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]" />
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[idcliente]"
+                      dataType="i4"
+                      name="idcliente" />
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="nome" />
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[sobrenome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="sobrenome" />
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="sexo" />
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[nascimento]"
+                      dataType="wstr"
+                      length="10"
+                      name="nascimento" />
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[NomeCompleto]"
+                      dataType="wstr"
+                      length="61"
+                      name="NomeCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[SexoPalavra]"
+                      dataType="wstr"
+                      length="9"
+                      name="SexoPalavra" />
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\StageCliente\DestinantionBIError.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\StageCliente\DestinantionBIError.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\StageCliente\DestinantionBIError.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\StageCliente\DestinantionBIError.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\StageCliente\DestinationCliente"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -233,7 +458,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\DestinationCliente.Connections[OleDbConnection]"
+                  refId="Package\StageCliente\DestinationCliente.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[ComercioStage]"
                   connectionManagerRefId="Package.ConnectionManagers[ComercioStage]"
                   description="The OLE DB runtime connection used to access the database."
@@ -241,117 +466,117 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input]"
+                  refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].Columns[idcliente]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].Columns[idcliente]"
                       cachedDataType="i4"
                       cachedName="idcliente"
-                      externalMetadataColumnId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[idcliente]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]" />
+                      externalMetadataColumnId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[idcliente]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].Columns[email]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].Columns[email]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="60"
                       cachedName="email"
-                      externalMetadataColumnId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[email]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[email]" />
+                      externalMetadataColumnId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[email]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].Columns[nascimento]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].Columns[nascimento]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="nascimento"
-                      externalMetadataColumnId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[nascimento]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nascimento]" />
+                      externalMetadataColumnId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[nascimento]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[nascimento]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].Columns[regiao]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].Columns[regiao]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="regiao"
-                      externalMetadataColumnId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[regiao]"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output].Columns[regiao]" />
+                      externalMetadataColumnId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[regiao]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output].Columns[regiao]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].Columns[estado]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].Columns[estado]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="estado"
-                      externalMetadataColumnId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[estado]"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output].Columns[estado]" />
+                      externalMetadataColumnId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[estado]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output].Columns[estado]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].Columns[cidade]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].Columns[cidade]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="cidade"
-                      externalMetadataColumnId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[cidade]"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output].Columns[cidade]" />
+                      externalMetadataColumnId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[cidade]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output].Columns[cidade]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].Columns[StringSexoPalavra]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].Columns[StringSexoPalavra]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="9"
                       cachedName="StringSexoPalavra"
-                      externalMetadataColumnId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[StringSexoPalavra]" />
+                      externalMetadataColumnId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                      lineageId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Output].Columns[StringSexoPalavra]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].Columns[StringNomeCompleto]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].Columns[StringNomeCompleto]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="61"
                       cachedName="StringNomeCompleto"
-                      externalMetadataColumnId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[StringNomeCompleto]" />
+                      externalMetadataColumnId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                      lineageId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Output].Columns[StringNomeCompleto]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[idcliente]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[idcliente]"
                       dataType="i4"
                       name="idcliente" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="nome" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="sexo" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[nascimento]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[nascimento]"
                       dataType="wstr"
                       length="10"
                       name="nascimento" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[cidade]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[cidade]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="cidade" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[estado]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[estado]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="estado" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[regiao]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[regiao]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="regiao" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      refId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input].ExternalColumns[email]"
                       codePage="1252"
                       dataType="str"
                       length="100"
@@ -361,22 +586,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\DestinationCliente.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\StageCliente\DestinationCliente.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\StageCliente\DestinationCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DestinationCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\StageCliente\DestinationCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DestinationCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\StageCliente\DestinationCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DestinationCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\StageCliente\DestinationCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -385,232 +610,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[ErrorEndereco]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[BIError]"
-                  connectionManagerRefId="Package.ConnectionManagers[BIError]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[idcliente]"
-                      cachedDataType="i4"
-                      cachedName="idcliente"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idcliente]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nome]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="nome"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sobrenome]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="sobrenome"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sobrenome]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[email]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="60"
-                      cachedName="email"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[email]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sexo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="sexo"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nascimento]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="nascimento"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nascimento]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nascimento]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NomeCompleto]"
-                      cachedDataType="wstr"
-                      cachedLength="61"
-                      cachedName="NomeCompleto"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NomeCompleto]"
-                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SexoPalavra]"
-                      cachedDataType="wstr"
-                      cachedLength="9"
-                      cachedName="SexoPalavra"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SexoPalavra]"
-                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorCode]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorColumn]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idcliente]"
-                      dataType="i4"
-                      name="idcliente" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      name="nome" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sobrenome]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      name="sobrenome" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
-                      codePage="1252"
-                      dataType="str"
-                      length="60"
-                      name="email" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="sexo" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nascimento]"
-                      dataType="wstr"
-                      length="10"
-                      name="nascimento" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NomeCompleto]"
-                      dataType="wstr"
-                      length="61"
-                      name="NomeCompleto" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SexoPalavra]"
-                      dataType="wstr"
-                      length="9"
-                      name="SexoPalavra" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
-                      dataType="i4"
-                      name="ErrorCode" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
-                      dataType="i4"
-                      name="ErrorColumn" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\ProcuraEndereco"
+              refId="Package\StageCliente\ProcuraEndereco"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -666,7 +666,7 @@ where [refTable].[id_cliente] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]};</property>
+                  name="ParameterMap">#{Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -678,7 +678,7 @@ where [refTable].[id_cliente] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\ProcuraEndereco.Connections[OleDbConnection]"
+                  refId="Package\StageCliente\ProcuraEndereco.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[ComercioOLTP]"
                   connectionManagerRefId="Package.ConnectionManagers[ComercioOLTP]"
                   description="Connection manager used to access lookup data."
@@ -686,14 +686,14 @@ where [refTable].[id_cliente] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\ProcuraEndereco.Inputs[Lookup Input]"
+                  refId="Package\StageCliente\ProcuraEndereco.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\ProcuraEndereco.Inputs[Lookup Input].Columns[idcliente]"
+                      refId="Package\StageCliente\ProcuraEndereco.Inputs[Lookup Input].Columns[idcliente]"
                       cachedDataType="i4"
                       cachedName="idcliente"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]">
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -711,20 +711,20 @@ where [refTable].[id_cliente] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output]"
+                  refId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\ProcuraEndereco.Inputs[Lookup Input]">
+                  synchronousInputId="Package\StageCliente\ProcuraEndereco.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output].Columns[regiao]"
+                      refId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output].Columns[regiao]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Copy Column"
                       length="20"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output].Columns[regiao]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output].Columns[regiao]"
                       name="regiao"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -735,12 +735,12 @@ where [refTable].[id_cliente] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output].Columns[estado]"
+                      refId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output].Columns[estado]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Copy Column"
                       length="20"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output].Columns[estado]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output].Columns[estado]"
                       name="estado"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -751,12 +751,12 @@ where [refTable].[id_cliente] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output].Columns[cidade]"
+                      refId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output].Columns[cidade]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Copy Column"
                       length="50"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output].Columns[cidade]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output].Columns[cidade]"
                       name="cidade"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -770,30 +770,30 @@ where [refTable].[id_cliente] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup No Match Output]"
+                  refId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\ProcuraEndereco.Inputs[Lookup Input]">
+                  synchronousInputId="Package\StageCliente\ProcuraEndereco.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Error Output]"
+                  refId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\ProcuraEndereco.Inputs[Lookup Input]">
+                  synchronousInputId="Package\StageCliente\ProcuraEndereco.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -802,7 +802,7 @@ where [refTable].[id_cliente] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\RequisitosMKT"
+              refId="Package\StageCliente\RequisitosMKT"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -810,50 +810,50 @@ where [refTable].[id_cliente] = ?</property>
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input]"
+                  refId="Package\StageCliente\RequisitosMKT.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input].Columns[nome]"
+                      refId="Package\StageCliente\RequisitosMKT.Inputs[Derived Column Input].Columns[nome]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="nome"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]" />
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input].Columns[sobrenome]"
+                      refId="Package\StageCliente\RequisitosMKT.Inputs[Derived Column Input].Columns[sobrenome]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="sobrenome"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]" />
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input].Columns[sexo]"
+                      refId="Package\StageCliente\RequisitosMKT.Inputs[Derived Column Input].Columns[sexo]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1"
                       cachedName="sexo"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]" />
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output]"
+                  refId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\StageCliente\RequisitosMKT.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]"
+                      refId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="61"
-                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]"
+                      lineageId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]"
                       name="NomeCompleto"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -861,7 +861,7 @@ where [refTable].[id_cliente] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]} + " " + #{Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]}</property>
+                          name="Expression">#{Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]} + " " + #{Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -871,12 +871,12 @@ where [refTable].[id_cliente] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]"
+                      refId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="9"
-                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]"
+                      lineageId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]"
                       name="SexoPalavra"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -884,7 +884,7 @@ where [refTable].[id_cliente] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">([FINDSTRING](#{Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]},"M",1) != 0) ? "masculino" : "feminnino"</property>
+                          name="Expression">([FINDSTRING](#{Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]},"M",1) != 0) ? "masculino" : "feminnino"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -897,23 +897,23 @@ where [refTable].[id_cliente] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output]"
+                  refId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\StageCliente\RequisitosMKT.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -922,7 +922,7 @@ where [refTable].[id_cliente] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\SourceCliente"
+              refId="Package\StageCliente\SourceCliente"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -971,7 +971,7 @@ where [refTable].[id_cliente] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\SourceCliente.Connections[OleDbConnection]"
+                  refId="Package\StageCliente\SourceCliente.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[ComercioOLTP]"
                   connectionManagerRefId="Package.ConnectionManagers[ComercioOLTP]"
                   description="The OLE DB runtime connection used to access the database."
@@ -979,164 +979,164 @@ where [refTable].[id_cliente] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output]"
+                  refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[idcliente]"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]"
+                      externalMetadataColumnId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[idcliente]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[idcliente]"
                       name="idcliente"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                      externalMetadataColumnId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[nome]"
                       length="30"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]"
                       name="nome"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[sobrenome]"
+                      externalMetadataColumnId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[sobrenome]"
                       length="30"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]"
                       name="sobrenome"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[email]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[email]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      externalMetadataColumnId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[email]"
                       length="60"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[email]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[email]"
                       name="email"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
+                      externalMetadataColumnId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
                       length="1"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]"
                       name="sexo"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nascimento]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[nascimento]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[nascimento]"
+                      externalMetadataColumnId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[nascimento]"
                       length="10"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nascimento]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].Columns[nascimento]"
                       name="nascimento"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[idcliente]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[idcliente]"
                       dataType="i4"
                       name="idcliente" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[nome]"
                       codePage="1252"
                       dataType="str"
                       length="30"
                       name="nome" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[sobrenome]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[sobrenome]"
                       codePage="1252"
                       dataType="str"
                       length="30"
                       name="sobrenome" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[email]"
                       codePage="1252"
                       dataType="str"
                       length="60"
                       name="email" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
                       codePage="1252"
                       dataType="str"
                       length="1"
                       name="sexo" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[nascimento]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output].ExternalColumns[nascimento]"
                       dataType="wstr"
                       length="10"
                       name="nascimento" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output]"
+                  refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[idcliente]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[idcliente]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[idcliente]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[idcliente]"
                       name="idcliente" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[nome]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[nome]"
                       codePage="1252"
                       dataType="str"
                       length="30"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[nome]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[nome]"
                       name="nome" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[sobrenome]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[sobrenome]"
                       codePage="1252"
                       dataType="str"
                       length="30"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[sobrenome]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[sobrenome]"
                       name="sobrenome" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[email]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[email]"
                       codePage="1252"
                       dataType="str"
                       length="60"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[email]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[email]"
                       name="email" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[sexo]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[sexo]"
                       codePage="1252"
                       dataType="str"
                       length="1"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[sexo]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[sexo]"
                       name="sexo" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[nascimento]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[nascimento]"
                       dataType="wstr"
                       length="10"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[nascimento]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[nascimento]"
                       name="nascimento" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1147,42 +1147,42 @@ where [refTable].[id_cliente] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
-              endId="Package\Data Flow Task\DestinationCliente.Inputs[OLE DB Destination Input]"
+              refId="Package\StageCliente.Paths[Data Conversion Output]"
+              endId="Package\StageCliente\DestinationCliente.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\StageCliente\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output]"
-              endId="Package\Data Flow Task\ProcuraEndereco.Inputs[Lookup Input]"
+              refId="Package\StageCliente.Paths[Derived Column Output]"
+              endId="Package\StageCliente\ProcuraEndereco.Inputs[Lookup Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output]" />
+              startId="Package\StageCliente\RequisitosMKT.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Error Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              refId="Package\StageCliente.Paths[Lookup Error Output]"
+              endId="Package\StageCliente\DestinantionBIError.Inputs[OLE DB Destination Input]"
               name="Lookup Error Output"
-              startId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Error Output]" />
+              startId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Error Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
-              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\StageCliente.Paths[Lookup Match Output]"
+              endId="Package\StageCliente\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\ProcuraEndereco.Outputs[Lookup Match Output]" />
+              startId="Package\StageCliente\ProcuraEndereco.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input]"
+              refId="Package\StageCliente.Paths[OLE DB Source Output]"
+              endId="Package\StageCliente\RequisitosMKT.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output]" />
+              startId="Package\StageCliente\SourceCliente.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate st_state"
+      DTS:refId="Package\TruncateCliente"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{C2A8AC5B-542D-4112-9D9A-77C193D7834E}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate st_state"
+      DTS:ObjectName="TruncateCliente"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -1198,10 +1198,10 @@ where [refTable].[id_cliente] = ?</property>
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{D8A08BDD-8183-4647-9263-8B538627A46B}"
-      DTS:From="Package\Truncate st_state"
+      DTS:From="Package\TruncateCliente"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Data Flow Task" />
+      DTS:To="Package\StageCliente" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1216,22 +1216,22 @@ where [refTable].[id_cliente] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,42"
-          Id="Package\Truncate st_state"
-          TopLeft="37,33" />
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task"
+          Size="142,42"
+          Id="Package\StageCliente"
           TopLeft="244,106" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\TruncateCliente"
+          TopLeft="37,33" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="119,75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="202.5,31"
+              EndConnector="196,31"
               Start="0,0"
-              End="202.5,23.5">
+              End="196,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1242,13 +1242,13 @@ where [refTable].[id_cliente] = ?</property>
                     Point2="0,15.5"
                     Point3="4,15.5" />
                   <mssgle:LineSegment
-                    End="198.5,15.5" />
+                    End="192,15.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="198.5,15.5"
-                    Point2="202.5,15.5"
-                    Point3="202.5,19.5" />
+                    Point1="192,15.5"
+                    Point2="196,15.5"
+                    Point3="196,19.5" />
                   <mssgle:LineSegment
-                    End="202.5,23.5" />
+                    End="196,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1261,20 +1261,36 @@ where [refTable].[id_cliente] = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\StageCliente">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="148,42"
-          Id="Package\Data Flow Task\SourceCliente"
-          TopLeft="27,27" />
+          Size="175,42"
+          Id="Package\StageCliente\DestinantionBIError"
+          TopLeft="506,93" />
         <NodeLayout
           Size="172,42"
-          Id="Package\Data Flow Task\RequisitosMKT"
+          Id="Package\StageCliente\RequisitosMKT"
           TopLeft="167,106" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\StageCliente\DestinationCliente"
+          TopLeft="552,360" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\StageCliente\SourceCliente"
+          TopLeft="27,27" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\StageCliente\Data Conversion"
+          TopLeft="427,273" />
+        <NodeLayout
+          Size="164,43"
+          Id="Package\StageCliente\ProcuraEndereco"
+          TopLeft="322,184" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          Id="Package\StageCliente.Paths[OLE DB Source Output]"
           TopLeft="101,69">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1307,50 +1323,8 @@ where [refTable].[id_cliente] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,43"
-          Id="Package\Data Flow Task\ProcuraEndereco"
-          TopLeft="322,184" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="253,148">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="151,36"
-              Start="0,0"
-              End="151,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14"
-                    Point2="0,18"
-                    Point3="4,18" />
-                  <mssgle:LineSegment
-                    End="147,18" />
-                  <mssgle:CubicBezierSegment
-                    Point1="147,18"
-                    Point2="151,18"
-                    Point3="151,22" />
-                  <mssgle:LineSegment
-                    End="151,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Data Flow Task\Data Conversion"
-          TopLeft="427,273" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          Id="Package\StageCliente.Paths[Lookup Match Output]"
           TopLeft="404,227">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1385,19 +1359,15 @@ where [refTable].[id_cliente] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="506,93" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Error Output]"
+          Id="Package\StageCliente.Paths[Lookup Error Output]"
           TopLeft="430,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="164.5,-49"
+              EndConnector="163.5,-49"
               Start="0,0"
-              End="164.5,-41.5">
+              End="163.5,-41.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1408,29 +1378,59 @@ where [refTable].[id_cliente] = ?</property>
                     Point2="0,-19.8840579710145"
                     Point3="4,-19.8840579710145" />
                   <mssgle:LineSegment
-                    End="160.5,-19.8840579710145" />
+                    End="159.5,-19.8840579710145" />
                   <mssgle:CubicBezierSegment
-                    Point1="160.5,-19.8840579710145"
-                    Point2="164.5,-19.8840579710145"
-                    Point3="164.5,-23.8840579710145" />
+                    Point1="159.5,-19.8840579710145"
+                    Point2="163.5,-19.8840579710145"
+                    Point3="163.5,-23.8840579710145" />
                   <mssgle:LineSegment
-                    End="164.5,-41.5" />
+                    End="163.5,-41.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="36.38361328125,-14.8840579710145,91.7327734375,11.609375"
+              BoundingBox="35.88361328125,-14.8840579710145,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="169,42"
-          Id="Package\Data Flow Task\DestinationCliente"
-          TopLeft="552,360" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          Id="Package\StageCliente.Paths[Derived Column Output]"
+          TopLeft="253,148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="151,36"
+              Start="0,0"
+              End="151,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="147,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="147,18"
+                    Point2="151,18"
+                    Point3="151,22" />
+                  <mssgle:LineSegment
+                    End="151,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\StageCliente.Paths[Data Conversion Output]"
           TopLeft="507.5,315">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1467,7 +1467,7 @@ where [refTable].[id_cliente] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\SourceCliente">
+    design-time-name="Package\StageCliente\DestinantionBIError">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1480,12 +1480,38 @@ where [refTable].[id_cliente] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\ProcuraEndereco">
+    design-time-name="Package\StageCliente\DestinationCliente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\StageCliente\SourceCliente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\StageCliente\ProcuraEndereco">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1495,36 +1521,10 @@ where [refTable].[id_cliente] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\DestinationCliente">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
