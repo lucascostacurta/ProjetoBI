@@ -11,48 +11,10 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{CA90976F-AAD7-4A99-AB7C-9B5F2191222E}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{05355459-4052-4550-8386-49D4F39BBD13}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LUCAS-IDEAPADGA\SQLDEVELOPER.bi_error]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{23A349D8-E33B-4D85-BBBE-6F002B2B61CB}"
-      DTS:ObjectName="LUCAS-IDEAPADGA\SQLDEVELOPER.bi_error">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=bi_error;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{23A349D8-E33B-4D85-BBBE-6F002B2B61CB}LUCAS-IDEAPADGA\SQLDEVELOPER.bi_error;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_oltp]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{4CB4F269-66BE-4544-A4A8-67DBAA1642CF}"
-      DTS:ObjectName="LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_oltp">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=comercio_oltp;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{4CB4F269-66BE-4544-A4A8-67DBAA1642CF}LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_oltp;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_stage]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B7EFDDBA-C9C6-41CD-B2A7-BB1643288312}"
-      DTS:ObjectName="LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_stage">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=comercio_stage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B7EFDDBA-C9C6-41CD-B2A7-BB1643288312}LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_stage;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -213,8 +175,8 @@ FROM            st_vendedor</property>
               <connections>
                 <connection
                   refId="Package\StageVendedor\DestinationVendedor.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_stage]"
+                  connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -357,8 +319,8 @@ FROM            vendedor</property>
               <connections>
                 <connection
                   refId="Package\StageVendedor\SourceVendedor.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_oltp]"
-                  connectionManagerRefId="Package.ConnectionManagers[LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_oltp]"
+                  connectionManagerID="{6B0596D6-918A-4AF5-BF61-994C8340B5F4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ComercioOLTP]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -507,7 +469,7 @@ FROM            vendedor</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B7EFDDBA-C9C6-41CD-B2A7-BB1643288312}"
+          SQLTask:Connection="{03563054-5E7C-49ED-8187-63C3D51EB6BA}"
           SQLTask:SqlStatementSource="truncate table st_vendedor" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>

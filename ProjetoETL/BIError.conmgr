@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="BIError"
+  DTS:DTSID="{B4ED39B6-4828-4465-9972-908B0BD2BA3C}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=bi_error;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-CargaCliente-{B4ED39B6-4828-4465-9972-908B0BD2BA3C}LUCAS-IDEAPADGA\SQLDEVELOPER.bi_error;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

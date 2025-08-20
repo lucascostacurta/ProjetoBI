@@ -11,48 +11,10 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="CargaCliente"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{C3A5AB3C-73C1-457D-8C29-4D30B5E0C9F0}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{F51611C5-6509-495F-984F-3EEB84AB2882}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[BIError]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B4ED39B6-4828-4465-9972-908B0BD2BA3C}"
-      DTS:ObjectName="BIError">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=bi_error;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-CargaCliente-{B4ED39B6-4828-4465-9972-908B0BD2BA3C}LUCAS-IDEAPADGA\SQLDEVELOPER.bi_error;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[ComercioOLTP]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{6B0596D6-918A-4AF5-BF61-994C8340B5F4}"
-      DTS:ObjectName="ComercioOLTP">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=comercio_oltp;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{6B0596D6-918A-4AF5-BF61-994C8340B5F4}LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_oltp;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[ComercioStage]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}"
-      DTS:ObjectName="ComercioStage">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=comercio_stage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{03563054-5E7C-49ED-8187-63C3D51EB6BA}LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_stage;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -234,8 +196,8 @@
               <connections>
                 <connection
                   refId="Package\StageCliente\DestinantionBIError.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[BIError]"
-                  connectionManagerRefId="Package.ConnectionManagers[BIError]"
+                  connectionManagerID="{B4ED39B6-4828-4465-9972-908B0BD2BA3C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[BIError]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -459,8 +421,8 @@
               <connections>
                 <connection
                   refId="Package\StageCliente\DestinationCliente.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ComercioStage]"
-                  connectionManagerRefId="Package.ConnectionManagers[ComercioStage]"
+                  connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -679,8 +641,8 @@ where [refTable].[id_cliente] = ?</property>
               <connections>
                 <connection
                   refId="Package\StageCliente\ProcuraEndereco.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ComercioOLTP]"
-                  connectionManagerRefId="Package.ConnectionManagers[ComercioOLTP]"
+                  connectionManagerID="{6B0596D6-918A-4AF5-BF61-994C8340B5F4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ComercioOLTP]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -972,8 +934,8 @@ where [refTable].[id_cliente] = ?</property>
               <connections>
                 <connection
                   refId="Package\StageCliente\SourceCliente.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ComercioOLTP]"
-                  connectionManagerRefId="Package.ConnectionManagers[ComercioOLTP]"
+                  connectionManagerID="{6B0596D6-918A-4AF5-BF61-994C8340B5F4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ComercioOLTP]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
