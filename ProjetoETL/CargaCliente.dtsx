@@ -11,8 +11,8 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="CargaCliente"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{0FCC59C8-EC3E-443C-85B0-0559615EF40B}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{65B1CFEC-721D-42D5-A1EB-8A674F84B115}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,51 +58,58 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\ConcatenaNome"
+              refId="Package\Data Flow Task\RequisitosMKT"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="ConcatenaNome"
+              name="RequisitosMKT"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\ConcatenaNome.Inputs[Derived Column Input]"
+                  refId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\ConcatenaNome.Inputs[Derived Column Input].Columns[nome]"
+                      refId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input].Columns[nome]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="nome"
                       lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[nome]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ConcatenaNome.Inputs[Derived Column Input].Columns[sobrenome]"
+                      refId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input].Columns[sobrenome]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="sobrenome"
                       lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sobrenome]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input].Columns[sexo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="sexo"
+                      lineageId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\ConcatenaNome.Outputs[Derived Column Output]"
+                  refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\ConcatenaNome.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ConcatenaNome.Outputs[Derived Column Output].Columns[NomeCompleto]"
+                      refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="61"
-                      lineageId="Package\Data Flow Task\ConcatenaNome.Outputs[Derived Column Output].Columns[NomeCompleto]"
+                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[NomeCompleto]"
                       name="NomeCompleto"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -119,27 +126,50 @@
                           name="FriendlyExpression">nome + " " + sobrenome</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="9"
+                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Output].Columns[SexoPalavra]"
+                      name="SexoPalavra"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([FINDSTRING](#{Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]},"m",1) != 0) ? "masculino" : "feminnino"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FINDSTRING(sexo,"m",1) != 0) ? "masculino" : "feminnino"</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\ConcatenaNome.Outputs[Derived Column Error Output]"
+                  refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\ConcatenaNome.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ConcatenaNome.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ConcatenaNome.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ConcatenaNome.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ConcatenaNome.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\RequisitosMKT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -374,7 +404,7 @@
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\ConcatenaNome.Inputs[Derived Column Input]"
+              endId="Package\Data Flow Task\RequisitosMKT.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output]" />
           </paths>
@@ -477,7 +507,7 @@
           TopLeft="27,27" />
         <NodeLayout
           Size="172,42"
-          Id="Package\Data Flow Task\ConcatenaNome"
+          Id="Package\Data Flow Task\RequisitosMKT"
           TopLeft="167,106" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
