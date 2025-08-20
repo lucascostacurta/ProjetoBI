@@ -11,8 +11,8 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="CargaCliente"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{692A9552-5712-4EB4-822C-9A086D5262DD}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{0F8D9B19-9623-45B4-B61E-EBB718CDF451}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -884,13 +884,13 @@ where [refTable].[id_cliente] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">([FINDSTRING](#{Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]},"m",1) != 0) ? "masculino" : "feminnino"</property>
+                          name="Expression">([FINDSTRING](#{Package\Data Flow Task\SourceCliente.Outputs[OLE DB Source Output].Columns[sexo]},"M",1) != 0) ? "masculino" : "feminnino"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(FINDSTRING(sexo,"m",1) != 0) ? "masculino" : "feminnino"</property>
+                          name="FriendlyExpression">(FINDSTRING(sexo,"M",1) != 0) ? "masculino" : "feminnino"</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
