@@ -11,8 +11,8 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="CargaCliente"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{5AF39C50-06F7-4E97-9DB3-13143944CEEE}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{692A9552-5712-4EB4-822C-9A086D5262DD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1189,7 +1189,7 @@ where [refTable].[id_cliente] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{03563054-5E7C-49ED-8187-63C3D51EB6BA}"
-          SQLTask:SqlStatementSource="truncate table comercio_stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="truncate table st_cliente" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
