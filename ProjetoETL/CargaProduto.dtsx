@@ -1,0 +1,647 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/20/2025 7:50:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LUCAS-IDEAPADGA"
+  DTS:CreatorName="LUCAS-IDEAPADGA\lcfer"
+  DTS:DTSID="{C8679640-C926-4898-BBAC-40580318A96C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{B05ACB78-34C6-4709-B07D-66450DC8C8EE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BCAE9B96-0088-4D0F-B2E6-227BC31ECD44}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="StageProduto"
+          DTS:DTSID="{41A89641-9B42-415E-B73B-82EDF552081A}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\DestinationProduto"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DestinationProduto"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idproduto]
+      ,[nome]
+      ,[valor_unitario]
+      ,[custo_medio]
+      ,[id_categoria]
+  FROM [comercio_stage].[dbo].[st_produto]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Connections[OleDbConnection]"
+                      connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[idproduto]"
+                          cachedDataType="i4"
+                          cachedName="idproduto"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[idproduto]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[custo_medio]"
+                          cachedDataType="numeric"
+                          cachedName="custo_medio"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[custo_medio]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[custo_medio]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[id_categoria]"
+                          cachedDataType="i4"
+                          cachedName="id_categoria"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[id_categoria]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[id_categoria]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[produto]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="produto"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[produto]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[valor]"
+                          cachedDataType="numeric"
+                          cachedName="valor"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[valor_unitario]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[valor]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[idproduto]"
+                          dataType="i4"
+                          name="idproduto" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[valor_unitario]"
+                          dataType="numeric"
+                          name="valor_unitario"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[custo_medio]"
+                          dataType="numeric"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[id_categoria]"
+                          dataType="i4"
+                          name="id_categoria" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\SourceProduto"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SourceProduto"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idproduto]
+      ,[produto]
+      ,[valor]
+      ,[custo_medio]
+      ,[id_categoria]
+  FROM [comercio_oltp].[dbo].[produto]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\SourceProduto.Connections[OleDbConnection]"
+                      connectionManagerID="{6B0596D6-918A-4AF5-BF61-994C8340B5F4}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioOLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[idproduto]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]"
+                          name="idproduto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[produto]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[produto]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[produto]"
+                          name="produto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[valor]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[valor]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[valor]"
+                          name="valor"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[custo_medio]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[custo_medio]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[custo_medio]"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[id_categoria]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[id_categoria]"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[id_categoria]"
+                          name="id_categoria"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[idproduto]"
+                          dataType="i4"
+                          name="idproduto" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[produto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="produto" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[valor]"
+                          dataType="numeric"
+                          name="valor"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[custo_medio]"
+                          dataType="numeric"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[id_categoria]"
+                          dataType="i4"
+                          name="id_categoria" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[idproduto]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[idproduto]"
+                          name="idproduto" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[produto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[produto]"
+                          name="produto" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[valor]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[valor]"
+                          name="valor"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[custo_medio]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[custo_medio]"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[id_categoria]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[id_categoria]"
+                          name="id_categoria" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\TrucateProduto"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A251E145-4621-4D9F-9BFE-6AB805778711}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TrucateProduto"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{03563054-5E7C-49ED-8187-63C3D51EB6BA}"
+              SQLTask:SqlStatementSource="truncate table st_produto" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{0DBAC779-AB6D-464E-97E9-D03BCED151D2}"
+          DTS:From="Package\Sequence Container\TrucateProduto"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F4A94FCA-424E-45A4-ABEC-083743A26F26}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container 1">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container 1\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7114F3E7-F603-41E4-AFC9-B04A43B92AC9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{03563054-5E7C-49ED-8187-63C3D51EB6BA}"
+              SQLTask:SqlStatementSource="exec CamelCase" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{10609306-9299-4328-9ACC-C954D4929C7E}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Sequence Container 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\TrucateProduto"
+          TopLeft="27,11" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="105,53">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\Data Flow Task"
+          TopLeft="28,90" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="201,142"
+          Size="201,185"
+          Id="Package\Sequence Container"
+          TopLeft="12,16.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Sequence Container 1\Execute SQL Task"
+          TopLeft="13,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,144"
+          Size="205,188"
+          Id="Package\Sequence Container 1"
+          TopLeft="299,15" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="213,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86,0"
+              Start="0,0"
+              End="78.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Sequence Container\Data Flow Task\DestinationProduto"
+          TopLeft="222,193" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Sequence Container\Data Flow Task\SourceProduto"
+          TopLeft="76,84" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="152,126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.5,67"
+              Start="0,0"
+              End="156.5,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.5"
+                    Point2="0,33.5"
+                    Point3="4,33.5" />
+                  <mssgle:LineSegment
+                    End="152.5,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.5,33.5"
+                    Point2="156.5,33.5"
+                    Point3="156.5,37.5" />
+                  <mssgle:LineSegment
+                    End="156.5,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\DestinationProduto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\SourceProduto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
