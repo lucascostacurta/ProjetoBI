@@ -26,26 +26,26 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LUCAS-IDEAPADGA</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuj9n6flYGEyb47KcAhIXagAAAAACAAAAAAAQZgAAAAEAACAAAADKbet3lU/Qun5Io3fQHBPspTU/gXBp7cm4P84tiRXU/wAAAAAOgAAAAAIAACAAAAA0jVqEKbzG0/ZQYQrSwUxeikBkpXjTVgk5d2cnc/1e4pAAAAB//IXKGweBkxQcu4ehM9JWX7fZ+ci+rfubkZFB2VSYocqIBQt+jXwQsUi7/yL5YR8Pn60gE3yoBGGBnLNBu0cwEmD6i2CYQN8j03XO6l3t9ReJ/PTUd2gl/rQIX2sOVi7TB14eQu+nh8j1Rd3GNDz/3healvEJOpxfYSs2IL/uwJqpdz6+1AnM172raNRuBelAAAAAtEcdEPUhz821Oke2j9PWnx81C7jziL8QGHGOw1nP84bZLESDH+P4CIZxllmj+7PHOcC9BNno44v5LB6mn+uAOA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuj9n6flYGEyb47KcAhIXagAAAAACAAAAAAAQZgAAAAEAACAAAADxz2Wheyd0fmdImWdq7lfaIjKXt9nrjreAcIGZAdfRjwAAAAAOgAAAAAIAACAAAACbF1K79H4smgcRKNPmQFun9coupD2TyIK3pfczkjk25ZAAAABgB0z/JCO3SEeS76fFDM830dpRotp6Jc2tbOL7NtH+qJ/JNtrNeHdrAlz53hMTqhnlBAkGsCVh6/yT5S84PMZdwI5pv3WjRHohcErHJezHi3R1jO+AdZP+2CB3+gIZEHEEV0o9LJjzFVoi9sCj4WPE0MNZQjWUgEt+Z6lc1aXtjTcaBkFBv/gYnGEhIBxS7m9AAAAAFXOZrGLa3J1MDlgWY7W0s5YJ7h2nXVzMlfbJMRSsW8GGCw1+WcSGuPkNtv4/h4yvduVvDHpXqq21dNoEFYu/IA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="Package.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="CargaCliente.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters />
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="Package.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="CargaCliente.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{B7B6EC62-31AD-4287-B62F-FD79B06FA449}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{6D3CC1C1-1FC4-466F-85D6-CB1ED79F3D29}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">CargaCliente</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">2</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">4</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{B3986DD6-6072-4F01-A5FE-EA487392C462}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0FCC59C8-EC3E-443C-85B0-0559615EF40B}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
