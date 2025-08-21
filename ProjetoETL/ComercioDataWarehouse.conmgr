@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ComercioDataWarehouse"
+  DTS:DTSID="{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=comercio_dw;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_dw;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
