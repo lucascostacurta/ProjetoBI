@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="8/20/2025 8:41:14 PM"
+  DTS:CreationDate="8/21/2025 2:49:49 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LUCAS-IDEAPADGA"
   DTS:CreatorName="LUCAS-IDEAPADGA\lcfer"
-  DTS:DTSID="{282C10A6-D101-4E43-8139-3BB6A1BE56D5}"
+  DTS:DTSID="{D656070E-A29A-4EE4-9120-2B10B4650C84}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.2"
   DTS:LocaleID="1046"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:VersionBuild="6"
-  DTS:VersionGUID="{041771A1-8254-454E-8015-CCD78846AFFD}">
+  DTS:VersionGUID="{78F8177B-B927-44C4-95CC-E41133924DEF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DWForma"
+      DTS:refId="Package\Sequence Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{AB524C9D-DD7D-48B3-B40A-58FE3E44C671}"
+      DTS:DTSID="{B6DFDB9D-32A5-48CA-AAC9-AD8A1676C63A}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DWForma">
+      DTS:ObjectName="Sequence Container">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\DWForma\Data Flow Task"
+          DTS:refId="Package\Sequence Container\Data Flow Task"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{5B28D0AF-E74B-473E-B71F-412EBB5B675C}"
+          DTS:DTSID="{B637DDAB-D7B2-43A4-A55E-CC1ABA62E829}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Data Flow Task"
@@ -42,7 +42,292 @@
               version="1">
               <components>
                 <component
-                  refId="Package\DWForma\Data Flow Task\OLE DB Destination"
+                  refId="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idnota]
+  FROM [comercio_stage].[dbo].[st_nota]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[idnota]"
+                          cachedDataType="i4"
+                          cachedName="idnota"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idnota]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idnota]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idnota]"
+                          dataType="i4"
+                          name="idnota" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idnota]
+  FROM [comercio_oltp].[dbo].[nota_fiscal]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{6B0596D6-918A-4AF5-BF61-994C8340B5F4}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioOLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idnota]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idnota]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idnota]"
+                          name="idnota"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idnota]"
+                          dataType="i4"
+                          name="idnota" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idnota]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idnota]"
+                          name="idnota" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D1068525-F034-43B7-BF90-B9237B7A9F89}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{03563054-5E7C-49ED-8187-63C3D51EB6BA}"
+              SQLTask:SqlStatementSource="truncate table st_nota" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{91B80D18-A554-4723-980F-C78B84202547}"
+          DTS:From="Package\Sequence Container\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{303ED697-AA6F-467C-9C70-461FF5A9837B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container 1">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container 1\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{456347B4-9607-4C59-9676-D6653DE16F67}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
@@ -67,9 +352,8 @@
                       description="The SQL command to be executed."
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idsk]
-      ,[idforma]
-      ,[forma]
-  FROM [comercio_dw].[dbo].[dim_forma]</property>
+      ,[idnota]
+  FROM [comercio_dw].[dbo].[dim_nota]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -102,7 +386,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\DWForma\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      refId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
                       connectionManagerID="{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}:external"
                       connectionManagerRefId="Project.ConnectionManagers[ComercioDataWarehouse]"
                       description="The OLE DB runtime connection used to access the database."
@@ -110,64 +394,50 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      refId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[idforma]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[idnota]"
                           cachedDataType="i4"
-                          cachedName="idforma"
-                          externalMetadataColumnId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idforma]"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idforma]" />
-                        <inputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[forma]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="30"
-                          cachedName="forma"
-                          externalMetadataColumnId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[forma]"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[forma]" />
+                          cachedName="idnota"
+                          externalMetadataColumnId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idnota]"
+                          lineageId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idnota]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idsk]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idsk]"
                           dataType="i4"
                           name="idsk" />
                         <externalMetadataColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idforma]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[idnota]"
                           dataType="i4"
-                          name="idforma" />
-                        <externalMetadataColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[forma]"
-                          codePage="1252"
-                          dataType="str"
-                          length="30"
-                          name="forma" />
+                          name="idnota" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\DWForma\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -176,7 +446,7 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\DWForma\Data Flow Task\OLE DB Source"
+                  refId="Package\Sequence Container 1\Data Flow Task\OLE DB Source"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
                   description="OLE DB Source"
@@ -200,13 +470,9 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idforma]
-      ,[forma]
-  FROM [comercio_stage].[dbo].[st_forma]
-  where idforma not in (SELECT
-      [idforma]
-  FROM [comercio_dw].[dbo].[dim_forma]
-)</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idnota]
+  FROM [comercio_stage].[dbo].[st_nota]
+  where idnota not in (select idnota from comercio_dw.dbo.dim_nota)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -231,7 +497,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\DWForma\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      refId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
                       connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
                       connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
                       description="The OLE DB runtime connection used to access the database."
@@ -239,71 +505,47 @@
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      refId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
                       name="OLE DB Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idforma]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idnota]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idforma]"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idforma]"
-                          name="idforma"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[forma]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[forma]"
-                          length="30"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[forma]"
-                          name="forma"
+                          externalMetadataColumnId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idnota]"
+                          lineageId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idnota]"
+                          name="idnota"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idforma]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idnota]"
                           dataType="i4"
-                          name="idforma" />
-                        <externalMetadataColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[forma]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="forma" />
+                          name="idnota" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      refId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
                       isErrorOut="true"
                       name="OLE DB Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idforma]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idnota]"
                           dataType="i4"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idforma]"
-                          name="idforma" />
+                          lineageId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idnota]"
+                          name="idnota" />
                         <outputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[forma]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[forma]"
-                          name="forma" />
-                        <outputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          refId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -314,351 +556,26 @@
               </components>
               <paths>
                 <path
-                  refId="Package\DWForma\Data Flow Task.Paths[OLE DB Source Output]"
-                  endId="Package\DWForma\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Sequence Container 1\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
-                  startId="Package\DWForma\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+                  startId="Package\Sequence Container 1\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\StageForma"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Sequence Container"
-      DTS:DTSID="{C34C2213-8F96-4039-A28D-DD9766605613}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="StageForma">
-      <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\StageForma\StageForma"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:DTSID="{508D5A2B-4C72-4F36-853F-8D68929CA934}"
-          DTS:ExecutableType="Microsoft.Pipeline"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="StageForma"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <pipeline
-              version="1">
-              <components>
-                <component
-                  refId="Package\StageForma\StageForma\DestinationForma"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="DestinationForma"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset"></property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idforma]
-      ,[forma]
-  FROM [comercio_stage].[dbo].[st_forma]</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">2</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\StageForma\StageForma\DestinationForma.Connections[OleDbConnection]"
-                      connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\StageForma\StageForma\DestinationForma.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\StageForma\StageForma\DestinationForma.Inputs[OLE DB Destination Input].Columns[idforma]"
-                          cachedDataType="i4"
-                          cachedName="idforma"
-                          externalMetadataColumnId="Package\StageForma\StageForma\DestinationForma.Inputs[OLE DB Destination Input].ExternalColumns[idforma]"
-                          lineageId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].Columns[idforma]" />
-                        <inputColumn
-                          refId="Package\StageForma\StageForma\DestinationForma.Inputs[OLE DB Destination Input].Columns[forma]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="forma"
-                          externalMetadataColumnId="Package\StageForma\StageForma\DestinationForma.Inputs[OLE DB Destination Input].ExternalColumns[forma]"
-                          lineageId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].Columns[forma]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\StageForma\StageForma\DestinationForma.Inputs[OLE DB Destination Input].ExternalColumns[idforma]"
-                          dataType="i4"
-                          name="idforma" />
-                        <externalMetadataColumn
-                          refId="Package\StageForma\StageForma\DestinationForma.Inputs[OLE DB Destination Input].ExternalColumns[forma]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="forma" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\StageForma\StageForma\DestinationForma.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\StageForma\StageForma\DestinationForma.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\StageForma\StageForma\DestinationForma.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\StageForma\StageForma\DestinationForma.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\StageForma\StageForma\DestinationForma.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\StageForma\StageForma\DestinationForma.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\StageForma\StageForma\SourceForma"
-                  componentClassID="Microsoft.OLEDBSource"
-                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-                  description="OLE DB Source"
-                  name="SourceForma"
-                  usesDispositions="true"
-                  version="7">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset"></property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idforma]
-      ,[forma]
-  FROM [comercio_oltp].[dbo].[forma_pagamento]</property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">2</property>
-                    <property
-                      dataType="System.String"
-                      description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\StageForma\StageForma\SourceForma.Connections[OleDbConnection]"
-                      connectionManagerID="{6B0596D6-918A-4AF5-BF61-994C8340B5F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[ComercioOLTP]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output]"
-                      name="OLE DB Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].Columns[idforma]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].ExternalColumns[idforma]"
-                          lineageId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].Columns[idforma]"
-                          name="idforma"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].Columns[forma]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].ExternalColumns[forma]"
-                          length="50"
-                          lineageId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].Columns[forma]"
-                          name="forma"
-                          truncationRowDisposition="FailComponent" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].ExternalColumns[idforma]"
-                          dataType="i4"
-                          name="idforma" />
-                        <externalMetadataColumn
-                          refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output].ExternalColumns[forma]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="forma" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Error Output]"
-                      isErrorOut="true"
-                      name="OLE DB Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Error Output].Columns[idforma]"
-                          dataType="i4"
-                          lineageId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Error Output].Columns[idforma]"
-                          name="idforma" />
-                        <outputColumn
-                          refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Error Output].Columns[forma]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Error Output].Columns[forma]"
-                          name="forma" />
-                        <outputColumn
-                          refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-              </components>
-              <paths>
-                <path
-                  refId="Package\StageForma\StageForma.Paths[OLE DB Source Output]"
-                  endId="Package\StageForma\StageForma\DestinationForma.Inputs[OLE DB Destination Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\StageForma\StageForma\SourceForma.Outputs[OLE DB Source Output]" />
-              </paths>
-            </pipeline>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\StageForma\TruncateForma"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{3745C917-03AA-4E72-8A27-9DDF468D1755}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="TruncateForma"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{03563054-5E7C-49ED-8187-63C3D51EB6BA}"
-              SQLTask:SqlStatementSource="truncate table st_forma" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\StageForma.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{8E22C75C-CBFC-485D-AB8E-35D99E4E8536}"
-          DTS:From="Package\StageForma\TruncateForma"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\StageForma\StageForma" />
-      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{7A10F51F-053F-4ADF-B5A8-FCBEC9D4F1BB}"
-      DTS:From="Package\StageForma"
+      DTS:DTSID="{442A0C48-F851-4AE6-8735-44DF50CF0CF6}"
+      DTS:From="Package\Sequence Container"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\DWForma" />
+      DTS:To="Package\Sequence Container 1" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -673,35 +590,39 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="140,42"
-          Id="Package\StageForma\StageForma"
-          TopLeft="140.5,123.5" />
+          Size="170,42"
+          Id="Package\Sequence Container\Execute SQL Task"
+          TopLeft="44,1" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\Data Flow Task"
+          TopLeft="64,76" />
         <EdgeLayout
-          Id="Package\StageForma.PrecedenceConstraints[Constraint]"
-          TopLeft="82.5,47.5">
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="129,43">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="128,76"
+              EndConnector="12.5,33"
               Start="0,0"
-              End="128,68.5">
+              End="12.5,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34" />
+                    End="0,12.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34"
-                    Point2="0,38"
-                    Point3="4,38" />
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="4,16.5" />
                   <mssgle:LineSegment
-                    End="124,38" />
+                    End="8.5,16.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="124,38"
-                    Point2="128,38"
-                    Point3="128,42" />
+                    Point1="8.5,16.5"
+                    Point2="12.5,16.5"
+                    Point3="12.5,20.5" />
                   <mssgle:LineSegment
-                    End="128,68.5" />
+                    End="12.5,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -710,54 +631,50 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="154,42"
-          Id="Package\StageForma\TruncateForma"
-          TopLeft="5.5,5.5" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="286,220"
-          Size="286,263"
-          Id="Package\StageForma"
-          TopLeft="57,77" />
+          PanelSize="244,173"
+          Size="244,216"
+          Id="Package\Sequence Container"
+          TopLeft="28,35" />
         <NodeLayout
           Size="155,42"
-          Id="Package\DWForma\Data Flow Task"
-          TopLeft="30,58" />
+          Id="Package\Sequence Container 1\Data Flow Task"
+          TopLeft="48,10" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="205,182"
-          Size="205,225"
-          Id="Package\DWForma"
-          TopLeft="429,80" />
+          PanelSize="205,107"
+          Size="205,150"
+          Id="Package\Sequence Container 1"
+          TopLeft="311,43" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="343,208.5">
+          TopLeft="272,143">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="86,-16"
+              EndConnector="39,-25"
               Start="0,0"
-              End="78.5,-16">
+              End="31.5,-25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="39,0" />
+                    End="15.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="39,0"
-                    Point2="43,0"
-                    Point3="43,-4" />
+                    Point1="15.5,0"
+                    Point2="19.5,0"
+                    Point3="19.5,-4" />
                   <mssgle:LineSegment
-                    End="43,-12" />
+                    End="19.5,-21" />
                   <mssgle:CubicBezierSegment
-                    Point1="43,-12"
-                    Point2="43,-16"
-                    Point3="47,-16" />
+                    Point1="19.5,-21"
+                    Point2="19.5,-25"
+                    Point3="23.5,-25" />
                   <mssgle:LineSegment
-                    End="78.5,-16" />
+                    End="31.5,-25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -770,112 +687,44 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\StageForma\StageForma">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="146,42"
-          Id="Package\StageForma\StageForma\SourceForma"
-          TopLeft="76,136" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\StageForma\StageForma\DestinationForma"
-          TopLeft="376,182" />
-        <EdgeLayout
-          Id="Package\StageForma\StageForma.Paths[OLE DB Source Output]"
-          TopLeft="222,157">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="154,46"
-              Start="0,0"
-              End="146.5,46">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="73,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="73,0"
-                    Point2="77,0"
-                    Point3="77,4" />
-                  <mssgle:LineSegment
-                    End="77,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="77,42"
-                    Point2="77,46"
-                    Point3="81,46" />
-                  <mssgle:LineSegment
-                    End="146.5,46" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\StageForma\StageForma\DestinationForma">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\StageForma\StageForma\SourceForma">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DWForma\Data Flow Task">
+    design-time-name="Package\Sequence Container\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="177,42"
-          Id="Package\DWForma\Data Flow Task\OLE DB Destination"
-          TopLeft="276,186" />
+          Id="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+          TopLeft="192,219" />
         <NodeLayout
           Size="157,42"
-          Id="Package\DWForma\Data Flow Task\OLE DB Source"
-          TopLeft="114,60" />
+          Id="Package\Sequence Container\Data Flow Task\OLE DB Source"
+          TopLeft="96,58" />
         <EdgeLayout
-          Id="Package\DWForma\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="192.5,102">
+          Id="Package\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="174.5,100">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="172,84"
+              EndConnector="106,119"
               Start="0,0"
-              End="172,76.5">
+              End="106,111.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38" />
+                    End="0,55.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,38"
-                    Point2="0,42"
-                    Point3="4,42" />
+                    Point1="0,55.5"
+                    Point2="0,59.5"
+                    Point3="4,59.5" />
                   <mssgle:LineSegment
-                    End="168,42" />
+                    End="102,59.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="168,42"
-                    Point2="172,42"
-                    Point3="172,46" />
+                    Point1="102,59.5"
+                    Point2="106,59.5"
+                    Point3="106,63.5" />
                   <mssgle:LineSegment
-                    End="172,76.5" />
+                    End="106,111.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -888,7 +737,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DWForma\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Sequence Container\Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -896,7 +745,73 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DWForma\Data Flow Task\OLE DB Source">
+    design-time-name="Package\Sequence Container\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container 1\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Sequence Container 1\Data Flow Task\OLE DB Destination"
+          TopLeft="165,162" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Sequence Container 1\Data Flow Task\OLE DB Source"
+          TopLeft="89,40" />
+        <EdgeLayout
+          Id="Package\Sequence Container 1\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="167.5,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86,80"
+              Start="0,0"
+              End="86,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36"
+                    Point2="0,40"
+                    Point3="4,40" />
+                  <mssgle:LineSegment
+                    End="82,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82,40"
+                    Point2="86,40"
+                    Point3="86,44" />
+                  <mssgle:LineSegment
+                    End="86,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container 1\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container 1\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

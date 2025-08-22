@@ -7,6 +7,10 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=comercio_dw;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_dw;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;User ID=sa;Initial Catalog=comercio_dw;Provider=SQLOLEDB.1;Auto Translate=False;Application Name=SSIS-Package1-{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}LUCAS-IDEAPADGA\SQLDEVELOPER.comercio_dw;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuj9n6flYGEyb47KcAhIXagAAAAACAAAAAAAQZgAAAAEAACAAAABtVZCNqc+UCkP07kQC4WySzYK+9OujNBdoimx37/nzBQAAAAAOgAAAAAIAACAAAAA06u23n0WeHTHxg2bDb0JVc7gEYZudGp3uW/sQ7dqsFnAAAABTjFQTtZia2i0YRXUXMCqUO/I8Pa8jEg0TkhhFPMcLJPCG3lRN2EzxvAdgD7WHWMNUG1ip4YwJxB47OT++MxdMyJn9fM5V1pPne1Wi0LsO3CODoIOXeWMPtil8esDNES15yEa5K552xSxMXJ0BsVaVQAAAALEN19eokIA+qbpinH2BvBdRZ3eL+nOnm4hlDdqZunYuqpnxEyIlrRrlF/6gWJmNs9Vj4tgU8YkeEogOwO/Rpls=</DTS:Password>
+    </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

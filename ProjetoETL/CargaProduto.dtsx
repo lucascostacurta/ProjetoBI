@@ -11,12 +11,1150 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{B05ACB78-34C6-4709-B07D-66450DC8C8EE}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{72D69A42-CBE8-4F65-ABF3-878C57CBABA8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DWProduto"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D3FC6EC5-229F-4A67-ADC3-728BA437B09A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DWProduto">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\DWProduto\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{4C36414F-1478-46B0-85BE-17B2675D1096}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DWProduto\Data Flow Task\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\DWProduto\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[fim]"
+                          dataType="dbTimeStamp"
+                          description="fim"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[fim]"
+                          name="fim"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWProduto\Data Flow Task\Derived Column 1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\DWProduto\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[inicio]"
+                          dataType="dbTimeStamp"
+                          description="inicio"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[inicio]"
+                          name="inicio"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWProduto\Data Flow Task\DestinationProduto"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DestinationProduto"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[dim_produto]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idsk]
+      ,[idproduto]
+      ,[inicio]
+      ,[fim]
+      ,[nome]
+      ,[valor_unitario]
+      ,[custo_medio]
+      ,[id_categoria]
+  FROM [comercio_dw].[dbo].[dim_produto]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWProduto\Data Flow Task\DestinationProduto.Connections[OleDbConnection]"
+                      connectionManagerID="{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioDataWarehouse]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[idproduto]"
+                          cachedDataType="i4"
+                          cachedName="idproduto"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[idproduto]"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idproduto]" />
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[inicio]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="inicio"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[inicio]"
+                          lineageId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[inicio]" />
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="nome"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]" />
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[valor_unitario]"
+                          cachedDataType="numeric"
+                          cachedName="valor_unitario"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[valor_unitario]"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[valor_unitario]" />
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[custo_medio]"
+                          cachedDataType="numeric"
+                          cachedName="custo_medio"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[custo_medio]"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[custo_medio]" />
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].Columns[id_categoria]"
+                          cachedDataType="i4"
+                          cachedName="id_categoria"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[id_categoria]"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[id_categoria]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[idsk]"
+                          dataType="i4"
+                          name="idsk" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[idproduto]"
+                          dataType="i4"
+                          name="idproduto" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[inicio]"
+                          dataType="dbTimeStamp"
+                          name="inicio" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[fim]"
+                          dataType="dbTimeStamp"
+                          name="fim" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[valor_unitario]"
+                          dataType="numeric"
+                          name="valor_unitario"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[custo_medio]"
+                          dataType="numeric"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input].ExternalColumns[id_categoria]"
+                          dataType="i4"
+                          name="id_categoria" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\DestinationProduto.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWProduto\Data Flow Task\OLE DB Command"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_produto] SET [fim] = ? WHERE [idproduto] = ? AND [fim] IS NULL</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWProduto\Data Flow Task\OLE DB Command.Connections[OleDbConnection]"
+                      connectionManagerID="{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioDataWarehouse]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[idproduto]"
+                          cachedDataType="i4"
+                          cachedName="idproduto"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]" />
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[fim]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="fim"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[fim]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="dbTimeStamp"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension"
+                  componentClassID="Microsoft.SCD"
+                  contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+                  name="Slowly Changing Dimension"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SELECT statement used to create a schema rowset."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [custo_medio], [idproduto], [nome], [valor_unitario],[inicio],[fim] FROM [dbo].[dim_produto]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                      name="CurrentRowWhere">[inicio] IS NOT NULL AND [fim] IS NULL</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                      name="UpdateChangingAttributeHistory">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                      name="FailOnFixedAttributeChange">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the column name for the inferred member."
+                      name="InferredMemberIndicator"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether inferred member updates are detected."
+                      name="EnableInferredMember">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                      name="FailOnLookupFailure">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies that all rows in the input are new or the transformation detects the change type."
+                      name="IncomingRowChangeType"
+                      typeConverter="IncomingRowChangeType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Connections[LookupConnection]"
+                      connectionManagerID="{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioDataWarehouse]"
+                      description="Defines the connection to use for lookups in the dimension table"
+                      name="LookupConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                      name="Slowly Changing Dimension Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[custo_medio]"
+                          cachedDataType="numeric"
+                          cachedName="custo_medio"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[custo_medio]"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[custo_medio]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[idproduto]"
+                          cachedDataType="i4"
+                          cachedName="idproduto"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[idproduto]"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="nome"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[nome]"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[nome]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[valor_unitario]"
+                          cachedDataType="numeric"
+                          cachedName="valor_unitario"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[valor_unitario]"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[valor_unitario]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[custo_medio]"
+                          dataType="numeric"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[idproduto]"
+                          dataType="i4"
+                          name="idproduto" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[valor_unitario]"
+                          dataType="numeric"
+                          name="valor_unitario"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[inicio]"
+                          dataType="dbTimeStamp"
+                          name="inicio" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[fim]"
+                          dataType="dbTimeStamp"
+                          name="fim" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                      description="Unchanged rows"
+                      exclusionGroup="1"
+                      name="Unchanged Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Outputs[New Output]"
+                      description="New rows"
+                      exclusionGroup="1"
+                      name="New Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                      description="Rows with changes in columns tagged FixedAttribute"
+                      exclusionGroup="1"
+                      name="Fixed Attribute Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                      description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                      exclusionGroup="1"
+                      name="Changing Attribute Updates Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                      description="HistoricalAttribute (Type 2) changes result in these new rows"
+                      exclusionGroup="2"
+                      name="Historical Attribute Inserts Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                      description="Information to update unpopulated initial dimension row"
+                      exclusionGroup="1"
+                      name="Inferred Member Updates Output"
+                      synchronousInputId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWProduto\Data Flow Task\SourceProduto"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SourceProduto"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idproduto]
+      ,[nome]
+      ,[valor_unitario]
+      ,[custo_medio]
+      ,[id_categoria]
+  FROM [comercio_stage].[dbo].[st_produto]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWProduto\Data Flow Task\SourceProduto.Connections[OleDbConnection]"
+                      connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[idproduto]"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]"
+                          name="idproduto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                          length="50"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[nome]"
+                          name="nome"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[valor_unitario]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[valor_unitario]"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[valor_unitario]"
+                          name="valor_unitario"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[custo_medio]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[custo_medio]"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[custo_medio]"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[id_categoria]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[id_categoria]"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[id_categoria]"
+                          name="id_categoria"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[idproduto]"
+                          dataType="i4"
+                          name="idproduto" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[valor_unitario]"
+                          dataType="numeric"
+                          name="valor_unitario"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[custo_medio]"
+                          dataType="numeric"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].ExternalColumns[id_categoria]"
+                          dataType="i4"
+                          name="id_categoria" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[idproduto]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[idproduto]"
+                          name="idproduto" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[nome]"
+                          name="nome" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[valor_unitario]"
+                          dataType="numeric"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[valor_unitario]"
+                          name="valor_unitario"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[custo_medio]"
+                          dataType="numeric"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[custo_medio]"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[id_categoria]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[id_categoria]"
+                          name="id_categoria" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWProduto\Data Flow Task\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[idproduto]"
+                          cachedDataType="i4"
+                          cachedName="idproduto"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idproduto]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="nome"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[nome]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[valor_unitario]"
+                          cachedDataType="numeric"
+                          cachedName="valor_unitario"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[valor_unitario]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[valor_unitario]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[custo_medio]"
+                          cachedDataType="numeric"
+                          cachedName="custo_medio"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[custo_medio]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[custo_medio]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[id_categoria]"
+                          cachedDataType="i4"
+                          cachedName="id_categoria"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[id_categoria]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[id_categoria]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[idproduto]"
+                          cachedDataType="i4"
+                          cachedName="idproduto"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idproduto]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="nome"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[nome]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[valor_unitario]"
+                          cachedDataType="numeric"
+                          cachedName="valor_unitario"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[valor_unitario]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[valor_unitario]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[custo_medio]"
+                          cachedDataType="numeric"
+                          cachedName="custo_medio"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[custo_medio]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[custo_medio]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[id_categoria]"
+                          cachedDataType="i4"
+                          cachedName="id_categoria"
+                          lineageId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output].Columns[id_categoria]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[id_categoria]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idproduto]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idproduto]"
+                          name="idproduto" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]"
+                          name="nome" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[valor_unitario]"
+                          dataType="numeric"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[valor_unitario]"
+                          name="valor_unitario"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[custo_medio]"
+                          dataType="numeric"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[custo_medio]"
+                          name="custo_medio"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[id_categoria]"
+                          dataType="i4"
+                          lineageId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[id_categoria]"
+                          name="id_categoria" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DWProduto\Data Flow Task.Paths[Derived Column Output]"
+                  endId="Package\DWProduto\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                  name="Derived Column Output"
+                  startId="Package\DWProduto\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\DWProduto\Data Flow Task.Paths[Derived Column Output1]"
+                  endId="Package\DWProduto\Data Flow Task\DestinationProduto.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\DWProduto\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\DWProduto\Data Flow Task.Paths[Historical Attribute Inserts Output]"
+                  endId="Package\DWProduto\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  name="Historical Attribute Inserts Output"
+                  startId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+                <path
+                  refId="Package\DWProduto\Data Flow Task.Paths[New Output]"
+                  endId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 1]"
+                  name="New Output"
+                  startId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Outputs[New Output]" />
+                <path
+                  refId="Package\DWProduto\Data Flow Task.Paths[OLE DB Command Output]"
+                  endId="Package\DWProduto\Data Flow Task\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Command Output"
+                  startId="Package\DWProduto\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]" />
+                <path
+                  refId="Package\DWProduto\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\DWProduto\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DWProduto\Data Flow Task\SourceProduto.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\DWProduto\Data Flow Task.Paths[Union All Output 1]"
+                  endId="Package\DWProduto\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
+                  name="Union All Output 1"
+                  startId="Package\DWProduto\Data Flow Task\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Sequence Container"
       DTS:CreationName="STOCK:SEQUENCE"
@@ -491,6 +1629,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Sequence Container 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1FA19459-74C5-4CD2-94B3-B0CA74FABB4C}"
+      DTS:From="Package\Sequence Container 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DWProduto" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -503,7 +1649,11 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\Data Flow Task"
+          TopLeft="28,90" />
         <NodeLayout
           Size="155,42"
           Id="Package\Sequence Container\TrucateProduto"
@@ -530,10 +1680,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Sequence Container\Data Flow Task"
-          TopLeft="28,90" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -548,7 +1694,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="205,144"
+          PanelSize="205,145"
           Size="205,188"
           Id="Package\Sequence Container 1"
           TopLeft="299,15" />
@@ -566,6 +1712,51 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="78.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DWProduto\Data Flow Task"
+          TopLeft="42,29" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="231,153"
+          Size="231,196"
+          Id="Package\DWProduto"
+          TopLeft="294,283" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="401.5,203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,80"
+              Start="0,0"
+              End="8,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36"
+                    Point2="0,40"
+                    Point3="4,40" />
+                  <mssgle:LineSegment
+                    End="4,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,40"
+                    Point2="8,40"
+                    Point3="8,44" />
+                  <mssgle:LineSegment
+                    End="8,72.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -637,6 +1828,328 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Data Flow Task\SourceProduto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DWProduto\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\DWProduto\Data Flow Task\SourceProduto"
+          TopLeft="164,5.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\DWProduto\Data Flow Task\Slowly Changing Dimension"
+          TopLeft="132,107.5" />
+        <EdgeLayout
+          Id="Package\DWProduto\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="240,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DWProduto\Data Flow Task\Derived Column"
+          TopLeft="21,209.5" />
+        <EdgeLayout
+          Id="Package\DWProduto\Data Flow Task.Paths[Historical Attribute Inserts Output]"
+          TopLeft="205.333333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-105.333333333333,60"
+              Start="0,0"
+              End="-105.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2647058823529"
+                    Point2="0,24.2647058823529"
+                    Point3="-4,24.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-101.333333333333,24.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-101.333333333333,24.2647058823529"
+                    Point2="-105.333333333333,24.2647058823529"
+                    Point3="-105.333333333333,28.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-105.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-127.723053385417,29.2647058823529,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\DWProduto\Data Flow Task\OLE DB Command"
+          TopLeft="5.50000000000003,311.5" />
+        <EdgeLayout
+          Id="Package\DWProduto\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="100,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,60"
+              Start="0,0"
+              End="-8,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-4,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,30"
+                    Point2="-8,30"
+                    Point3="-8,34" />
+                  <mssgle:LineSegment
+                    End="-8,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\DWProduto\Data Flow Task\Union All"
+          TopLeft="178.5,413.5" />
+        <EdgeLayout
+          Id="Package\DWProduto\Data Flow Task.Paths[New Output]"
+          TopLeft="274.666666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.4999999999999,264"
+              Start="0,0"
+              End="-15.4999999999999,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,127.098876899361" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,127.098876899361"
+                    Point2="0,131.098876899361"
+                    Point3="-4,131.098876899361" />
+                  <mssgle:LineSegment
+                    End="-11.4999999999999,131.098876899361" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.4999999999999,131.098876899361"
+                    Point2="-15.4999999999999,131.098876899361"
+                    Point3="-15.4999999999999,135.098876899361" />
+                  <mssgle:LineSegment
+                    End="-15.4999999999999,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-34.84138671875,136.098876899361,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DWProduto\Data Flow Task.Paths[OLE DB Command Output]"
+          TopLeft="92,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.833333333333,60"
+              Start="0,0"
+              End="128.833333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.53772070626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.53772070626"
+                    Point2="0,35.53772070626"
+                    Point3="4,35.53772070626" />
+                  <mssgle:LineSegment
+                    End="124.833333333333,35.53772070626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.833333333333,35.53772070626"
+                    Point2="128.833333333333,35.53772070626"
+                    Point3="128.833333333333,39.53772070626" />
+                  <mssgle:LineSegment
+                    End="128.833333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DWProduto\Data Flow Task\Derived Column 1"
+          TopLeft="156.5,515.5" />
+        <EdgeLayout
+          Id="Package\DWProduto\Data Flow Task.Paths[Union All Output 1]"
+          TopLeft="240,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\DWProduto\Data Flow Task\DestinationProduto"
+          TopLeft="157.5,617.5" />
+        <EdgeLayout
+          Id="Package\DWProduto\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="242,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWProduto\Data Flow Task\SourceProduto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWProduto\Data Flow Task\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[dim_produto]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SourceProduto.Outputs[OLE DB Source Output].Columns[custo_medio]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;custo_medio&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SourceProduto.Outputs[OLE DB Source Output].Columns[id_categoria]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;id_categoria&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SourceProduto.Outputs[OLE DB Source Output].Columns[idproduto]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;idproduto&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SourceProduto.Outputs[OLE DB Source Output].Columns[nome]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;nome&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SourceProduto.Outputs[OLE DB Source Output].Columns[valor_unitario]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;valor_unitario&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;inicio&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;fim&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWProduto\Data Flow Task\DestinationProduto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

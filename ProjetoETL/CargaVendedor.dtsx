@@ -11,478 +11,1550 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{05355459-4052-4550-8386-49D4F39BBD13}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{63BED7EA-96E5-4300-8D5E-2C3B1600B509}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\StageVendedor"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{4E53EEE3-269E-443A-974F-C8133905A9D7}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:refId="Package\DWVendedor"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4F4351F0-59D9-4413-8DFC-747828B30CFA}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="StageVendedor"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="DWVendedor">
       <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\StageVendedor\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\StageVendedor\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\StageVendedor\Derived Column.Inputs[Derived Column Input].Columns[sexo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="sexo"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[sexo]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\StageVendedor\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\DWVendedor\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9FDED712-A5AB-422D-A939-D9D6D53BACE9}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DWVendedor\Data Flow Task\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\DWVendedor\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[fim]"
+                          dataType="dbTimeStamp"
+                          description="fim"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[fim]"
+                          name="fim"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWVendedor\Data Flow Task\Derived Column 1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\DWVendedor\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[inicio]"
+                          dataType="dbTimeStamp"
+                          description="inicio"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[inicio]"
+                          name="inicio"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWVendedor\Data Flow Task\Insert Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[dim_vendedor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWVendedor\Data Flow Task\Insert Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioDataWarehouse]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[idvendedor]"
+                          cachedDataType="i4"
+                          cachedName="idvendedor"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[idvendedor]"
+                          lineageId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idvendedor]" />
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[inicio]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="inicio"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[inicio]"
+                          lineageId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[inicio]" />
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="nome"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                          lineageId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]" />
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="sexo"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                          lineageId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[sexo]" />
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[idgerente]"
+                          cachedDataType="i4"
+                          cachedName="idgerente"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[idgerente]"
+                          lineageId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idgerente]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[idsk]"
+                          dataType="i4"
+                          name="idsk" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[idvendedor]"
+                          dataType="i4"
+                          name="idvendedor" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[inicio]"
+                          dataType="dbTimeStamp"
+                          name="inicio" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[fim]"
+                          dataType="dbTimeStamp"
+                          name="fim" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sexo" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[idgerente]"
+                          dataType="i4"
+                          name="idgerente" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWVendedor\Data Flow Task\OLE DB Command"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_vendedor] SET [fim] = ? WHERE [idvendedor] = ? AND [fim] IS NULL</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Connections[OleDbConnection]"
+                      connectionManagerID="{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioDataWarehouse]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[idvendedor]"
+                          cachedDataType="i4"
+                          cachedName="idvendedor"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idvendedor]" />
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[fim]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="fim"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[fim]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="dbTimeStamp"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWVendedor\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idvendedor]
+      ,[nome]
+      ,[sexo]
+      ,[idgerente]
+  FROM [comercio_stage].[dbo].[st_vendedor]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idvendedor]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idvendedor]"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idvendedor]"
+                          name="idvendedor"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                          length="50"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[nome]"
+                          name="nome"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
+                          length="20"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sexo]"
+                          name="sexo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idgerente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idgerente]"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idgerente]"
+                          name="idgerente"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idvendedor]"
+                          dataType="i4"
+                          name="idvendedor" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sexo" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[idgerente]"
+                          dataType="i4"
+                          name="idgerente" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idvendedor]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idvendedor]"
+                          name="idvendedor" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nome]"
+                          name="nome" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sexo]"
+                          name="sexo" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idgerente]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[idgerente]"
+                          name="idgerente" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension"
+                  componentClassID="Microsoft.SCD"
+                  contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+                  name="Slowly Changing Dimension"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SELECT statement used to create a schema rowset."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [idgerente], [idvendedor], [nome], [sexo],[inicio],[fim] FROM [dbo].[dim_vendedor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                      name="CurrentRowWhere">[inicio] IS NOT NULL AND [fim] IS NULL</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                      name="UpdateChangingAttributeHistory">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                      name="FailOnFixedAttributeChange">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the column name for the inferred member."
+                      name="InferredMemberIndicator"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether inferred member updates are detected."
+                      name="EnableInferredMember">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                      name="FailOnLookupFailure">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies that all rows in the input are new or the transformation detects the change type."
+                      name="IncomingRowChangeType"
+                      typeConverter="IncomingRowChangeType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Connections[LookupConnection]"
+                      connectionManagerID="{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioDataWarehouse]"
+                      description="Defines the connection to use for lookups in the dimension table"
+                      name="LookupConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                      name="Slowly Changing Dimension Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[idgerente]"
+                          cachedDataType="i4"
+                          cachedName="idgerente"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[idgerente]"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idgerente]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[idvendedor]"
+                          cachedDataType="i4"
+                          cachedName="idvendedor"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[idvendedor]"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idvendedor]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="nome"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[nome]"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[nome]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="sexo"
+                          externalMetadataColumnId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[sexo]"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sexo]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[idgerente]"
+                          dataType="i4"
+                          name="idgerente" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[idvendedor]"
+                          dataType="i4"
+                          name="idvendedor" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sexo" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[inicio]"
+                          dataType="dbTimeStamp"
+                          name="inicio" />
+                        <externalMetadataColumn
+                          refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[fim]"
+                          dataType="dbTimeStamp"
+                          name="fim" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                      description="Unchanged rows"
+                      exclusionGroup="1"
+                      name="Unchanged Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Outputs[New Output]"
+                      description="New rows"
+                      exclusionGroup="1"
+                      name="New Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                      description="Rows with changes in columns tagged FixedAttribute"
+                      exclusionGroup="1"
+                      name="Fixed Attribute Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                      description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                      exclusionGroup="1"
+                      name="Changing Attribute Updates Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                      description="HistoricalAttribute (Type 2) changes result in these new rows"
+                      exclusionGroup="2"
+                      name="Historical Attribute Inserts Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                      description="Information to update unpopulated initial dimension row"
+                      exclusionGroup="1"
+                      name="Inferred Member Updates Output"
+                      synchronousInputId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWVendedor\Data Flow Task\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[idvendedor]"
+                          cachedDataType="i4"
+                          cachedName="idvendedor"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idvendedor]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idvendedor]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="nome"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[nome]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="sexo"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sexo]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[sexo]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[idgerente]"
+                          cachedDataType="i4"
+                          cachedName="idgerente"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idgerente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idgerente]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[idvendedor]"
+                          cachedDataType="i4"
+                          cachedName="idvendedor"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idvendedor]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idvendedor]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="nome"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[nome]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="sexo"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sexo]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[sexo]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[idgerente]"
+                          cachedDataType="i4"
+                          cachedName="idgerente"
+                          lineageId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[idgerente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idgerente]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idvendedor]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idvendedor]"
+                          name="idvendedor" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[nome]"
+                          name="nome" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[sexo]"
+                          name="sexo" />
+                        <outputColumn
+                          refId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idgerente]"
+                          dataType="i4"
+                          lineageId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[idgerente]"
+                          name="idgerente" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DWVendedor\Data Flow Task.Paths[Derived Column Output]"
+                  endId="Package\DWVendedor\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
                   name="Derived Column Output"
-                  synchronousInputId="Package\StageVendedor\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\StageVendedor\Derived Column.Outputs[Derived Column Output].Columns[StringSexo]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\StageVendedor\Derived Column.Outputs[Derived Column Output].Columns[StringSexo]"
-                      name="StringSexo"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_STR,100,1252)(([FINDSTRING](#{Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[sexo]},"M",1) != 0) ? "Masculino" : "Feminino")</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,100,1252)((FINDSTRING(sexo,"M",1) != 0) ? "Masculino" : "Feminino")</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\StageVendedor\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\StageVendedor\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\StageVendedor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\StageVendedor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\StageVendedor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\StageVendedor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\StageVendedor\DestinationVendedor"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="DestinationVendedor"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        idvendedor, nome, sexo, idgerente
-FROM            st_vendedor</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\StageVendedor\DestinationVendedor.Connections[OleDbConnection]"
-                  connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].Columns[idvendedor]"
-                      cachedDataType="i4"
-                      cachedName="idvendedor"
-                      externalMetadataColumnId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idvendedor]"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[idvendedor]" />
-                    <inputColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].Columns[nome]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="nome"
-                      externalMetadataColumnId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[nome]" />
-                    <inputColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].Columns[id_gerente]"
-                      cachedDataType="i4"
-                      cachedName="id_gerente"
-                      externalMetadataColumnId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idgerente]"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[id_gerente]" />
-                    <inputColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].Columns[StringSexo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="StringSexo"
-                      externalMetadataColumnId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
-                      lineageId="Package\StageVendedor\Derived Column.Outputs[Derived Column Output].Columns[StringSexo]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idvendedor]"
-                      dataType="i4"
-                      name="idvendedor" />
-                    <externalMetadataColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="nome" />
-                    <externalMetadataColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="sexo" />
-                    <externalMetadataColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idgerente]"
-                      dataType="i4"
-                      name="idgerente" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\StageVendedor\SourceVendedor"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="SourceVendedor"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[vendedor]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        idvendedor, nome, sexo, id_gerente
-FROM            vendedor</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\StageVendedor\SourceVendedor.Connections[OleDbConnection]"
-                  connectionManagerID="{6B0596D6-918A-4AF5-BF61-994C8340B5F4}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ComercioOLTP]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[idvendedor]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[idvendedor]"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[idvendedor]"
-                      name="idvendedor"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[nome]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[nome]"
-                      length="30"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[nome]"
-                      name="nome"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[sexo]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
-                      length="1"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[sexo]"
-                      name="sexo"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[id_gerente]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[id_gerente]"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[id_gerente]"
-                      name="id_gerente"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[idvendedor]"
-                      dataType="i4"
-                      name="idvendedor" />
-                    <externalMetadataColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[nome]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      name="nome" />
-                    <externalMetadataColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="sexo" />
-                    <externalMetadataColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[id_gerente]"
-                      dataType="i4"
-                      name="id_gerente" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[idvendedor]"
-                      dataType="i4"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[idvendedor]"
-                      name="idvendedor" />
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[nome]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[nome]"
-                      name="nome" />
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[sexo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[sexo]"
-                      name="sexo" />
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[id_gerente]"
-                      dataType="i4"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[id_gerente]"
-                      name="id_gerente" />
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\StageVendedor.Paths[Derived Column Output]"
-              endId="Package\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\StageVendedor\Derived Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\StageVendedor.Paths[OLE DB Source Output]"
-              endId="Package\StageVendedor\Derived Column.Inputs[Derived Column Input]"
-              name="OLE DB Source Output"
-              startId="Package\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
+                  startId="Package\DWVendedor\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\DWVendedor\Data Flow Task.Paths[Derived Column Output1]"
+                  endId="Package\DWVendedor\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\DWVendedor\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\DWVendedor\Data Flow Task.Paths[Historical Attribute Inserts Output]"
+                  endId="Package\DWVendedor\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  name="Historical Attribute Inserts Output"
+                  startId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+                <path
+                  refId="Package\DWVendedor\Data Flow Task.Paths[New Output]"
+                  endId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 1]"
+                  name="New Output"
+                  startId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Outputs[New Output]" />
+                <path
+                  refId="Package\DWVendedor\Data Flow Task.Paths[OLE DB Command Output]"
+                  endId="Package\DWVendedor\Data Flow Task\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Command Output"
+                  startId="Package\DWVendedor\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]" />
+                <path
+                  refId="Package\DWVendedor\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DWVendedor\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\DWVendedor\Data Flow Task.Paths[Union All Output 1]"
+                  endId="Package\DWVendedor\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
+                  name="Union All Output 1"
+                  startId="Package\DWVendedor\Data Flow Task\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TruncateVendedor"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{8FABF069-4B19-471D-8022-A122388E37F4}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:refId="Package\StageVendedor"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{04E2214B-12A1-4091-8277-490D7998C91F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="TruncateVendedor"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ObjectName="StageVendedor">
       <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{03563054-5E7C-49ED-8187-63C3D51EB6BA}"
-          SQLTask:SqlStatementSource="truncate table st_vendedor" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\StageVendedor\StageVendedor"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{4E53EEE3-269E-443A-974F-C8133905A9D7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="StageVendedor"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\StageVendedor\StageVendedor\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\StageVendedor\StageVendedor\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\StageVendedor\StageVendedor\Derived Column.Inputs[Derived Column Input].Columns[sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="sexo"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[sexo]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\StageVendedor\StageVendedor\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Output].Columns[StringSexo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Output].Columns[StringSexo]"
+                          name="StringSexo"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)(([FINDSTRING](#{Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[sexo]},"M",1) != 0) ? "Masculino" : "Feminino")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)((FINDSTRING(sexo,"M",1) != 0) ? "Masculino" : "Feminino")</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\StageVendedor\StageVendedor\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\StageVendedor\StageVendedor\DestinationVendedor"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DestinationVendedor"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        idvendedor, nome, sexo, idgerente
+FROM            st_vendedor</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Connections[OleDbConnection]"
+                      connectionManagerID="{03563054-5E7C-49ED-8187-63C3D51EB6BA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioStage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].Columns[idvendedor]"
+                          cachedDataType="i4"
+                          cachedName="idvendedor"
+                          externalMetadataColumnId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idvendedor]"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[idvendedor]" />
+                        <inputColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="nome"
+                          externalMetadataColumnId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[nome]" />
+                        <inputColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].Columns[id_gerente]"
+                          cachedDataType="i4"
+                          cachedName="id_gerente"
+                          externalMetadataColumnId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idgerente]"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[id_gerente]" />
+                        <inputColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].Columns[StringSexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="StringSexo"
+                          externalMetadataColumnId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                          lineageId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Output].Columns[StringSexo]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idvendedor]"
+                          dataType="i4"
+                          name="idvendedor" />
+                        <externalMetadataColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="sexo" />
+                        <externalMetadataColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idgerente]"
+                          dataType="i4"
+                          name="idgerente" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\StageVendedor\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\StageVendedor\StageVendedor\DestinationVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\StageVendedor\StageVendedor\SourceVendedor"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SourceVendedor"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[vendedor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        idvendedor, nome, sexo, id_gerente
+FROM            vendedor</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\StageVendedor\StageVendedor\SourceVendedor.Connections[OleDbConnection]"
+                      connectionManagerID="{6B0596D6-918A-4AF5-BF61-994C8340B5F4}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ComercioOLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[idvendedor]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[idvendedor]"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[idvendedor]"
+                          name="idvendedor"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                          length="30"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[nome]"
+                          name="nome"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
+                          length="1"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[sexo]"
+                          name="sexo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[id_gerente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[id_gerente]"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].Columns[id_gerente]"
+                          name="id_gerente"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[idvendedor]"
+                          dataType="i4"
+                          name="idvendedor" />
+                        <externalMetadataColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="sexo" />
+                        <externalMetadataColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output].ExternalColumns[id_gerente]"
+                          dataType="i4"
+                          name="id_gerente" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[idvendedor]"
+                          dataType="i4"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[idvendedor]"
+                          name="idvendedor" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[nome]"
+                          name="nome" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[sexo]"
+                          name="sexo" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[id_gerente]"
+                          dataType="i4"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[id_gerente]"
+                          name="id_gerente" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\StageVendedor\StageVendedor.Paths[Derived Column Output]"
+                  endId="Package\StageVendedor\StageVendedor\DestinationVendedor.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\StageVendedor\StageVendedor\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\StageVendedor\StageVendedor.Paths[OLE DB Source Output]"
+                  endId="Package\StageVendedor\StageVendedor\Derived Column.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\StageVendedor\StageVendedor\SourceVendedor.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\StageVendedor\TruncateVendedor"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8FABF069-4B19-471D-8022-A122388E37F4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TruncateVendedor"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{03563054-5E7C-49ED-8187-63C3D51EB6BA}"
+              SQLTask:SqlStatementSource="truncate table st_vendedor" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\StageVendedor.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F8D780E2-D259-452E-A692-70BC52CCE438}"
+          DTS:From="Package\StageVendedor\TruncateVendedor"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\StageVendedor\StageVendedor" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{F8D780E2-D259-452E-A692-70BC52CCE438}"
-      DTS:From="Package\TruncateVendedor"
+      DTS:DTSID="{B9C3E224-C5D0-4BC1-B6DC-9B1E2FDA7223}"
+      DTS:From="Package\StageVendedor"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\StageVendedor" />
+      DTS:To="Package\DWVendedor" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -495,18 +1567,14 @@ FROM            vendedor</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="170,42"
-          Id="Package\TruncateVendedor"
-          TopLeft="105,84" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="155,42"
-          Id="Package\StageVendedor"
-          TopLeft="225,170" />
+          Id="Package\StageVendedor\StageVendedor"
+          TopLeft="125.5,91.5" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="190,126">
+          Id="Package\StageVendedor.PrecedenceConstraints[Constraint]"
+          TopLeft="90.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -538,24 +1606,80 @@ FROM            vendedor</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\StageVendedor\TruncateVendedor"
+          TopLeft="5.5,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="286,188"
+          Size="286,231"
+          Id="Package\StageVendedor"
+          TopLeft="77,132" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DWVendedor\Data Flow Task"
+          TopLeft="59,67" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="219,174"
+          Size="219,217"
+          Id="Package\DWVendedor"
+          TopLeft="486,152" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="363,247.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="123,13"
+              Start="0,0"
+              End="115.5,13">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="57.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.5,0"
+                    Point2="61.5,0"
+                    Point3="61.5,4" />
+                  <mssgle:LineSegment
+                    End="61.5,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.5,9"
+                    Point2="61.5,13"
+                    Point3="65.5,13" />
+                  <mssgle:LineSegment
+                    End="115.5,13" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\StageVendedor">
+    design-time-name="Package\StageVendedor\StageVendedor">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="162,42"
-          Id="Package\StageVendedor\SourceVendedor"
+          Id="Package\StageVendedor\StageVendedor\SourceVendedor"
           TopLeft="94,58" />
         <NodeLayout
           Size="158,42"
-          Id="Package\StageVendedor\Derived Column"
+          Id="Package\StageVendedor\StageVendedor\Derived Column"
           TopLeft="243,150" />
         <EdgeLayout
-          Id="Package\StageVendedor.Paths[OLE DB Source Output]"
+          Id="Package\StageVendedor\StageVendedor.Paths[OLE DB Source Output]"
           TopLeft="175,100">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -590,10 +1714,10 @@ FROM            vendedor</property>
         </EdgeLayout>
         <NodeLayout
           Size="182,42"
-          Id="Package\StageVendedor\DestinationVendedor"
+          Id="Package\StageVendedor\StageVendedor\DestinationVendedor"
           TopLeft="386,266" />
         <EdgeLayout
-          Id="Package\StageVendedor.Paths[Derived Column Output]"
+          Id="Package\StageVendedor\StageVendedor.Paths[Derived Column Output]"
           TopLeft="322,192">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -630,7 +1754,15 @@ FROM            vendedor</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\StageVendedor\SourceVendedor">
+    design-time-name="Package\StageVendedor\StageVendedor\DestinationVendedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\StageVendedor\StageVendedor\SourceVendedor">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -642,11 +1774,311 @@ FROM            vendedor</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DWVendedor\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DWVendedor\Data Flow Task\OLE DB Source"
+          TopLeft="161.5,5.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension"
+          TopLeft="132,107.5" />
+        <EdgeLayout
+          Id="Package\DWVendedor\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="240,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DWVendedor\Data Flow Task\Derived Column"
+          TopLeft="21,209.5" />
+        <EdgeLayout
+          Id="Package\DWVendedor\Data Flow Task.Paths[Historical Attribute Inserts Output]"
+          TopLeft="205.333333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-105.333333333333,60"
+              Start="0,0"
+              End="-105.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2647058823529"
+                    Point2="0,24.2647058823529"
+                    Point3="-4,24.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-101.333333333333,24.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-101.333333333333,24.2647058823529"
+                    Point2="-105.333333333333,24.2647058823529"
+                    Point3="-105.333333333333,28.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-105.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-127.723053385417,29.2647058823529,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\DWVendedor\Data Flow Task\OLE DB Command"
+          TopLeft="5.50000000000003,311.5" />
+        <EdgeLayout
+          Id="Package\DWVendedor\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="100,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,60"
+              Start="0,0"
+              End="-8,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-4,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,30"
+                    Point2="-8,30"
+                    Point3="-8,34" />
+                  <mssgle:LineSegment
+                    End="-8,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\DWVendedor\Data Flow Task\Union All"
+          TopLeft="178.5,413.5" />
+        <EdgeLayout
+          Id="Package\DWVendedor\Data Flow Task.Paths[New Output]"
+          TopLeft="274.666666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.4999999999999,264"
+              Start="0,0"
+              End="-15.4999999999999,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,127.098876899361" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,127.098876899361"
+                    Point2="0,131.098876899361"
+                    Point3="-4,131.098876899361" />
+                  <mssgle:LineSegment
+                    End="-11.4999999999999,131.098876899361" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.4999999999999,131.098876899361"
+                    Point2="-15.4999999999999,131.098876899361"
+                    Point3="-15.4999999999999,135.098876899361" />
+                  <mssgle:LineSegment
+                    End="-15.4999999999999,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-34.84138671875,136.098876899361,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DWVendedor\Data Flow Task.Paths[OLE DB Command Output]"
+          TopLeft="92,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.833333333333,60"
+              Start="0,0"
+              End="128.833333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.53772070626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.53772070626"
+                    Point2="0,35.53772070626"
+                    Point3="4,35.53772070626" />
+                  <mssgle:LineSegment
+                    End="124.833333333333,35.53772070626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.833333333333,35.53772070626"
+                    Point2="128.833333333333,35.53772070626"
+                    Point3="128.833333333333,39.53772070626" />
+                  <mssgle:LineSegment
+                    End="128.833333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DWVendedor\Data Flow Task\Derived Column 1"
+          TopLeft="156.5,515.5" />
+        <EdgeLayout
+          Id="Package\DWVendedor\Data Flow Task.Paths[Union All Output 1]"
+          TopLeft="240,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DWVendedor\Data Flow Task\Insert Destination"
+          TopLeft="157.5,617.5" />
+        <EdgeLayout
+          Id="Package\DWVendedor\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="240,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\StageVendedor\DestinationVendedor">
+    design-time-name="Package\DWVendedor\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWVendedor\Data Flow Task\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{B0F36C5A-F6D3-4EA9-A32A-0149950EC76D}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[dim_vendedor]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[idgerente]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;idgerente&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[idvendedor]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;idvendedor&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[nome]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;nome&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[sexo]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;sexo&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;inicio&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;fim&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
