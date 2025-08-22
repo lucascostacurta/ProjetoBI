@@ -1,0 +1,425 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f5444265-164f-4de0-9f03-ba9022448504" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>ViewComercioDW</ID>
+  <Name>ViewComercioDW</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="63fb0f42-cbd4-4a28-a62a-6f49f75cb7c7">
+      <ID>DimVendedor</ID>
+      <Name>DimVendedor</Name>
+      <DimensionID>DimVendedor</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c95885ed-2180-4985-9958-1bb125d8f289">
+          <AttributeID>NomeVendedor</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="618f4657-bb7f-4d5f-9e3e-0216262f0e96">
+          <AttributeID>Inicio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a9cd4b5b-bdf7-4058-ba04-5ee0d22d526a">
+          <AttributeID>Fim</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1f81f3ae-8674-40b4-96ed-17cd8178c717">
+          <AttributeID>Sexo</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2d23d13e-a4e5-42fa-be8e-945d103cec57">
+          <AttributeID>Idgerente</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="77174a25-a852-4e35-9ec5-bff3dbb9f553">
+      <ID>DimNota</ID>
+      <Name>DimNota</Name>
+      <DimensionID>Dim Nota</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="43e52c04-2965-4f37-9cc8-6ead9ed74b5a">
+          <AttributeID>Nota</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="d7c92a56-a911-4610-9664-955d5cb4929a">
+      <ID>DimCliente</ID>
+      <Name>DimCliente</Name>
+      <DimensionID>DimCliente</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a0e17b25-5a57-4814-a0cb-38a512c951bf">
+          <AttributeID>Cliente</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9ee90ba3-6036-4aa5-b4f1-adb99f85ec77">
+          <AttributeID>Inicio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="44eabba0-4a21-40a9-928f-a403209cf489">
+          <AttributeID>Fim</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f8c2d1d4-3408-44cb-bda0-c9d09ca059fa">
+          <AttributeID>Sexo</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2437855a-8569-4075-ba74-9035948f447a">
+          <AttributeID>Nascimento</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fa600d5f-f71e-48cc-9901-0a4df0828f23">
+          <AttributeID>Cidade</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e7627f00-4c9d-492a-b119-bf37a7367ab2">
+          <AttributeID>Estado</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="df427503-2b24-4c0c-895c-782cd2941e82">
+          <AttributeID>Regiao</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="269736b2-a77e-495f-8f8c-8d8acd1ec297">
+          <AttributeID>Email</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="0ad8fe9c-3be5-4b38-94f4-7758e2ff9a0f">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="d179f3f8-9659-467e-9ac0-18aa38371517">
+          <HierarchyID>Hierarchy 1</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="33a49bfc-dbd1-4a50-83c5-fd634fa605c0">
+      <ID>DimProduto</ID>
+      <Name>DimProduto</Name>
+      <DimensionID>Dim Produto</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="4679b5ba-9a55-48be-a906-6445cc147b46">
+          <AttributeID>NomeProduto</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3eb57131-7bd9-44b0-873f-194be6d17638">
+          <AttributeID>Inicio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="88bde666-6448-4b40-baaf-fe6769005e90">
+          <AttributeID>Fim</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="823766d9-2ea2-4174-9070-3e0224070142">
+          <AttributeID>Valor Unitario</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="643275ba-5d76-4723-8ace-561cbeeb128e">
+          <AttributeID>Custo Medio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2943c04b-85cb-4966-9070-7a538896e0c8">
+          <AttributeID>Categoria</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="3772bef4-719f-4ed2-8bab-fd637a9058f6">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="1b9eef40-56f6-4a73-b8eb-460818862e78">
+      <ID>DimFornecedor</ID>
+      <Name>DimFornecedor</Name>
+      <DimensionID>DimFornecedor</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="7dcb6b16-4b26-435f-a29b-b4598a228392">
+          <AttributeID>Idsk</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2135b553-339a-4ff5-815e-20a14cb28a55">
+          <AttributeID>Inicio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f6243069-149d-4137-bdf6-069f0d515d1e">
+          <AttributeID>Fim</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="887fc5a9-25e6-4401-af88-dca5c20f6afb">
+      <ID>DimTempo</ID>
+      <Name>DimTempo</Name>
+      <DimensionID>DimTempo</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a4f509a6-1b9c-40fc-8881-e118d16dca8b">
+          <AttributeID>Data</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="af6a1f86-298e-4255-b70f-e3c41b3c6321">
+          <AttributeID>Dia</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fa6dabce-cec1-4e79-85f1-4960878e43b0">
+          <AttributeID>Diasemana</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5aeed07f-3964-4766-b441-8b9d85f646a0">
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9e63b5cd-3f41-44f5-9dbd-a5fb4e339490">
+          <AttributeID>Nomemes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="df596f32-d109-4e40-87cf-4ac37c3dfd97">
+          <AttributeID>Quarto</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e354a6ce-111c-472d-b54b-73bfad4eaa5b">
+          <AttributeID>Nomequarto</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3a441cf4-173a-4121-90dd-28169dde93ef">
+          <AttributeID>Ano</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="aa9de54c-1dfe-4cef-bf02-2a8c6b85d8d3">
+          <AttributeID>Estacaoano</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a1dcb8b8-9934-4d5c-b4c1-29bda03f606e">
+          <AttributeID>Fimsemana</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="33365876-a821-4b41-9a47-d06ecb88790c">
+          <AttributeID>Datacompleta</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="0945fd35-0bc5-426b-9765-c75f697d298c">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="b354b12d-dbda-4afb-80d0-d410274fe1b2">
+          <HierarchyID>Hierarchy 1</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="c61ef5a2-ffd4-434b-9343-187c914ce24a">
+          <HierarchyID>Hierarchy 2</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="b01fabf1-1a47-47ba-b2fb-c87ed854832d">
+      <ID>DimForma</ID>
+      <Name>DimForma</Name>
+      <DimensionID>DimForma</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="116026e9-4d9e-4c16-a499-a421d85bdb28">
+          <AttributeID>FormaPagamento</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="a5aa7a42-dd52-44ad-a71e-a8d4c63ab49c">
+      <ID>Fato</ID>
+      <Name>Fato</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="58f7cb41-537a-4d1f-b864-d374aaef9f4c">
+          <ID>Quantidade</ID>
+          <Name>Quantidade</Name>
+          <Source dwd:design-time-name="2d6bd84c-380f-4678-a288-617522969d6a">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="81b8cf88-4a13-4279-be5c-c63a946748d7">
+              <TableID>dbo_fato</TableID>
+              <ColumnID>quantidade</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="c8b52054-e39c-4db2-8f85-2a64df4d15b6">
+          <ID>Total Item</ID>
+          <Name>Total Item</Name>
+          <Source dwd:design-time-name="428cfb40-7a25-4035-b13c-d389d61059ef">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="94484951-5239-4fd1-9fe9-730889149718">
+              <TableID>dbo_fato</TableID>
+              <ColumnID>total_item</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="d629a080-df0f-411a-a3ee-1cf0f22d1783">
+          <ID>Custo Total</ID>
+          <Name>Custo Total</Name>
+          <Source dwd:design-time-name="8b704db6-0daf-4233-a51f-101757d283cd">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="c99e11ae-3af2-406d-b07d-d9e91aa81138">
+              <TableID>dbo_fato</TableID>
+              <ColumnID>custo_total</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="9f6e5c83-35a6-4ed5-9fe5-d32e157834d5">
+          <ID>Lucro Total</ID>
+          <Name>Lucro Total</Name>
+          <Source dwd:design-time-name="5082402a-0ef6-46f0-8fcd-bd03d0cdc5c0">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="ab2cf33f-e25d-4a1f-ba3c-1d68e6df7388">
+              <TableID>dbo_fato</TableID>
+              <ColumnID>lucro_total</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="b61e9681-dd85-477c-9d5a-0bab950796b1">
+          <CubeDimensionID>DimVendedor</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d443792f-0ff9-4496-931d-dc7de08714f5">
+              <AttributeID>NomeVendedor</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c3ee39f1-d866-440e-b734-7175c2cd61d0">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6fae41ec-59dd-4a38-b099-c98223ed3e83">
+                    <TableID>dbo_fato</TableID>
+                    <ColumnID>idvendedor</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="57785916-3b32-4582-8d51-94145f137cd7">
+          <CubeDimensionID>DimNota</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d171e9c9-deaa-498a-870c-5e8e0f506d10">
+              <AttributeID>Nota</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="14ab7a1a-d228-44a2-9fd4-c43daefd1e59">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f6d3e060-260e-4615-989f-f10d2444da84">
+                    <TableID>dbo_fato</TableID>
+                    <ColumnID>idnota</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="27cc6020-a40c-4e1e-b3f2-216949a882f6">
+          <CubeDimensionID>DimCliente</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="da3fc52a-56ea-48ca-a7ca-b9f09bb451b8">
+              <AttributeID>Cliente</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="216e4a61-55ca-430e-b37c-a99cfa6e3ff8">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4b612337-a124-4734-94cf-80255d37ecb8">
+                    <TableID>dbo_fato</TableID>
+                    <ColumnID>idcliente</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e7524ef0-6861-4be0-ac86-c5a5807d0005">
+          <CubeDimensionID>DimProduto</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="de85d2a4-0904-4ab7-a95f-4d5ec1e144f5">
+              <AttributeID>NomeProduto</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="245cde0f-1769-4588-ae58-edf7b31eedc7">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="22e7d239-e98f-4f89-9b1f-f300531bc319">
+                    <TableID>dbo_fato</TableID>
+                    <ColumnID>idproduto</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="13de6063-bcfd-40da-b339-bccbd197d224">
+          <CubeDimensionID>DimFornecedor</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="43b6193b-60cf-482b-a5f0-b8809fe4389b">
+              <AttributeID>Idsk</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="5ca9da8f-d1fc-4cff-90df-c130a6599b13">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b5b211e5-3e76-4de9-8194-1b3885a0f4a1">
+                    <TableID>dbo_fato</TableID>
+                    <ColumnID>idfornecedor</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="893097ca-5f85-4624-bd6d-72594ba680c0">
+          <CubeDimensionID>DimTempo</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="9a53bd96-fa1e-45fe-b95d-5b0908798ac9">
+              <AttributeID>Data</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="63661192-4281-4ce5-812c-4453efbbdcc0">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="10fbb4cf-dc4a-42e4-9931-f376db24c2c6">
+                    <TableID>dbo_fato</TableID>
+                    <ColumnID>idtempo</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0e9af2d9-2f59-4ecb-ac5a-1f7c8b2e2d48">
+          <CubeDimensionID>DimForma</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="00391e7d-982e-4cef-bfb1-a56aed94deaf">
+              <AttributeID>FormaPagamento</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="025dfc26-aaba-4e0f-a5d7-0b7c04e3eb0c">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="83a624e0-bddf-4d63-a285-29a6f09de88e">
+                    <TableID>dbo_fato</TableID>
+                    <ColumnID>idforma</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="02a2cba4-76e9-49c1-82e3-f0c663be5dc1">
+    <DataSourceViewID>ViewComercioDW</DataSourceViewID>
+  </Source>
+</Cube>

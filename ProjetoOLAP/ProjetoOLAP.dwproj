@@ -6,6 +6,18 @@
     <Name>ProjetoOLAP.database</Name>
     <FullPath>ProjetoOLAP.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>ViewComercioDW.cube</Name>
+      <FullPath>ViewComercioDW.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>ViewComercioDW.partitions</Name>
+          <FullPath>ViewComercioDW.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
   <Dimensions>
     <ProjectItem>
       <Name>DimCliente.dim</Name>
@@ -14,6 +26,26 @@
     <ProjectItem>
       <Name>DimFornecedor.dim</Name>
       <FullPath>DimFornecedor.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimVendedor.dim</Name>
+      <FullPath>DimVendedor.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimNota.dim</Name>
+      <FullPath>DimNota.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimForma.dim</Name>
+      <FullPath>DimForma.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimProduto.dim</Name>
+      <FullPath>DimProduto.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimTempo.dim</Name>
+      <FullPath>DimTempo.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
