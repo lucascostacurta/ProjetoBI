@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="DatasetDataWarehouse">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=comercio_dw</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>ef5f7e17-4f4b-4a3c-ab1d-3fb3512250ca</DataSourceID>
+</RptDataSource>
