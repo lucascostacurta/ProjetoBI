@@ -52,7 +52,7 @@
     <DataSource Include="DatasetDataWarehouse.rds" />
   </ItemGroup>
   <ItemGroup>
-    <Report Include="Report1.rdl" />
+    <Report Include="RelClientes.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
