@@ -609,7 +609,7 @@
                                     <FontFamily>Segoe UI Semibold</FontFamily>
                                     <FontSize>11pt</FontSize>
                                     <Format>'R$' #,0.00;-'R$' #,0.00;'-'</Format>
-                                    <Color>Gray</Color>
+                                    <Color>DimGray</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
