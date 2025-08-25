@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.14.36414.22</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-08-25T01:46:41.9228904Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-08-25T03:22:50.7650606Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -463,7 +463,7 @@
             <Top>4.60058cm</Top>
             <Left>0.47308cm</Left>
             <Height>1.95792cm</Height>
-            <Width>12.52771cm</Width>
+            <Width>12.52772cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -570,7 +570,10 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!Total_Item.Value)</Value>
                                   <Style>
+                                    <FontStyle>=IIf(Fields!Total_Item.Value&gt;300000,"Italic","Default")</FontStyle>
+                                    <FontWeight>=IIf(Fields!Total_Item.Value&gt;300000,"Bold","Default")</FontWeight>
                                     <Format>'R$' #,0.00;-'R$' #,0.00;'-'</Format>
+                                    <Color>=IIf(Fields!Total_Item.Value&gt;300000,"SeaGreen","Black")</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -603,8 +606,10 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!Total_Item.Value)</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
+                                    <FontFamily>Segoe UI Semibold</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <Format>'R$' #,0.00;-'R$' #,0.00;'-'</Format>
+                                    <Color>Gray</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -617,6 +622,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>Lavender</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
