@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Report Include="RelClientes.rdl" />
+    <Report Include="RelFornecedor.rdl" />
+    <Report Include="RelProduto.rdl" />
     <Report Include="RelProdutos.rdl" />
     <Report Include="RelRegiaoVendas.rdl" />
     <Report Include="RelVendedores.rdl" />

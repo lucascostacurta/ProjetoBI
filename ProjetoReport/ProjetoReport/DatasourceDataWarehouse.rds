@@ -3,6 +3,7 @@
   <ConnectionProperties>
     <Extension>SQL</Extension>
     <ConnectString>Data Source=LUCAS-IDEAPADGA\SQLDEVELOPER;Initial Catalog=comercio_dw</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
   <DataSourceID>ef5f7e17-4f4b-4a3c-ab1d-3fb3512250ca</DataSourceID>
 </RptDataSource>
