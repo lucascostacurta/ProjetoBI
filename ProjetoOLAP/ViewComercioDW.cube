@@ -202,20 +202,6 @@
           <AttributeID>Datacompleta</AttributeID>
         </Attribute>
       </Attributes>
-      <Hierarchies>
-        <Hierarchy dwd:design-time-name="ebb74cd8-79d3-4609-852a-c9f13c65210b">
-          <HierarchyID>Hierarchy</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="f4c4a70d-5e31-4591-b1c7-a728cef20a96">
-          <HierarchyID>Hierarchy 1</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="fe70ac68-829f-4edc-9df0-faf72f9a5a98">
-          <HierarchyID>Hierarchy 2</HierarchyID>
-        </Hierarchy>
-        <Hierarchy dwd:design-time-name="bee59f59-b7b0-4467-8e4a-5ef73c3441ad">
-          <HierarchyID>Hierarchy 3</HierarchyID>
-        </Hierarchy>
-      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="2f79feed-6334-41ee-bc84-46fccea75814">
       <ID>DimForma</ID>
@@ -419,6 +405,7 @@
           </Attributes>
         </Dimension>
       </Dimensions>
+      <Partitions />
     </MeasureGroup>
   </MeasureGroups>
   <Source dwd:design-time-name="a129e7b4-3263-48bc-84bc-7f3a719114cb">

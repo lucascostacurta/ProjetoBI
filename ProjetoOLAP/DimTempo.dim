@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2382" scrolltop="-4180" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="12012" y="21140" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2382" scrolltop="-4180" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9446" y="21140" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -376,91 +376,5 @@
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
-  <Hierarchies>
-    <Hierarchy dwd:design-time-name="107cb95b-64dc-4042-a1cf-44feb3239a8e">
-      <ID>Hierarchy</ID>
-      <Name>Hierarchy</Name>
-      <Levels>
-        <Level dwd:design-time-name="89734b9e-cf3d-43fc-a855-316817e76976">
-          <ID>Ano</ID>
-          <Name>Ano</Name>
-          <SourceAttributeID>Ano</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="ed9de86e-55bf-44e1-9c32-9e9300bd05f6">
-          <ID>Quarto</ID>
-          <Name>Quarto</Name>
-          <SourceAttributeID>Quarto</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="e42ec5ed-923e-4f25-b039-c49e4b853600">
-          <ID>Mes</ID>
-          <Name>Mes</Name>
-          <SourceAttributeID>Mes</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="e1a5cbec-5506-4b81-a481-a9e0a7ad6617">
-          <ID>Dia</ID>
-          <Name>Dia</Name>
-          <SourceAttributeID>Dia</SourceAttributeID>
-        </Level>
-      </Levels>
-    </Hierarchy>
-    <Hierarchy dwd:design-time-name="93cb2815-16a0-400a-a736-dc8606ddf7c4">
-      <ID>Hierarchy 1</ID>
-      <Name>Hierarchy 1</Name>
-      <Levels>
-        <Level dwd:design-time-name="6b28e003-7dcc-447b-b2b3-b3f1ddeb7f2f">
-          <ID>Ano</ID>
-          <Name>Ano</Name>
-          <SourceAttributeID>Ano</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="838448d5-a913-49bb-8b1d-6a48bf5f8ab5">
-          <ID>Nomequarto</ID>
-          <Name>Nomequarto</Name>
-          <SourceAttributeID>Nomequarto</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="0031222a-bdf6-4c05-99f9-1bddee95f970">
-          <ID>Nomemes</ID>
-          <Name>Nomemes</Name>
-          <SourceAttributeID>Nomemes</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="7631a9e6-73b3-41dd-b212-659084ed6cc2">
-          <ID>Dia</ID>
-          <Name>Dia</Name>
-          <SourceAttributeID>Dia</SourceAttributeID>
-        </Level>
-      </Levels>
-    </Hierarchy>
-    <Hierarchy dwd:design-time-name="ac52ee6a-541e-4e42-a639-d9c7f12ae152">
-      <ID>Hierarchy 2</ID>
-      <Name>Hierarchy 2</Name>
-      <Levels>
-        <Level dwd:design-time-name="38d1df25-8163-471f-873e-109dcb581173">
-          <ID>Ano</ID>
-          <Name>Ano</Name>
-          <SourceAttributeID>Ano</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="8ea0309f-9e93-4572-90f6-3e59f05c9b4d">
-          <ID>Estacaoano</ID>
-          <Name>Estacaoano</Name>
-          <SourceAttributeID>Estacaoano</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="da1ad451-af4b-4dd9-a7c5-b45aba322c69">
-          <ID>Mes</ID>
-          <Name>Mes</Name>
-          <SourceAttributeID>Mes</SourceAttributeID>
-        </Level>
-      </Levels>
-    </Hierarchy>
-    <Hierarchy dwd:design-time-name="cff3254c-1bda-4171-8f43-e9beed41e47b">
-      <ID>Hierarchy 3</ID>
-      <Name>Hierarchy 3</Name>
-      <Levels>
-        <Level dwd:design-time-name="ca063027-c865-47a6-b0a2-d1aaea2d2642">
-          <ID>Nomequarto</ID>
-          <Name>Nomequarto</Name>
-          <SourceAttributeID>Nomequarto</SourceAttributeID>
-        </Level>
-      </Levels>
-    </Hierarchy>
-  </Hierarchies>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>
